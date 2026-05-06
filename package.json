@@ -1,0 +1,25 @@
+{
+  "name": "aegis-crowdfund",
+  "version": "1.0.0",
+  "description": "Aegis — Ethereum-based milestone crowdfunding platform",
+  "scripts": {
+    "compile": "npx hardhat compile",
+    "test": "npx hardhat test",
+    "node": "npx hardhat node",
+    "deploy": "npx hardhat ignition deploy ignition/modules/AegisFactory.js --network localhost"
+  },
+  "keywords": [
+    "ethereum",
+    "crowdfunding",
+    "solidity",
+    "hardhat"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@nomicfoundation/hardhat-toolbox": "^7.0.0",
+    "@nomicfoundation/hardhat-toolbox-mocha-ethers": "^3.0.4",
+    "hardhat": "^3.4.2"
+  },
+  "type": "module"
+}
