@@ -89,6 +89,18 @@ export default function CreateProject() {
         }
       }
 
+      // Strategy 3: fallback — query the factory for the latest project
+      if (!projectAddress) {
+        try {
+          const allProjects = await factory.getProjects();
+          if (allProjects.length > 0) {
+            projectAddress = allProjects[allProjects.length - 1];
+          }
+        } catch {
+          // Factory query failed — will redirect to home
+        }
+      }
+
       if (projectAddress) {
         setStatus("Project created!");
         navigate(`/project/${projectAddress}`);

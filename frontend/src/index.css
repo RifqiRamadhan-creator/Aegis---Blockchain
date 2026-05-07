@@ -107,3 +107,308 @@ h3 { font-size: 1rem; margin-bottom: 0.5rem; }
 .text-center { text-align: center; }
 .error { color: #f87171; font-size: 0.85rem; }
 .success { color: #4ade80; font-size: 0.85rem; }
+
+/* ── Proof Builder (Creator) ───────────────────────────────────────── */
+.proof-builder {
+  margin-top: 0.75rem;
+  border: 1px solid #2a2d37;
+  border-radius: 8px;
+  padding: 0.75rem;
+  background: #14161e;
+}
+.proof-builder h4 {
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+  color: #c084fc;
+}
+.proof-item-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
+  background: #1a1d27;
+  border-radius: 6px;
+  border: 1px solid #2a2d37;
+}
+.proof-item-row select {
+  width: 120px;
+  flex-shrink: 0;
+  margin-bottom: 0;
+}
+.proof-item-row input {
+  flex: 1;
+  margin-bottom: 0;
+}
+.proof-item-row .btn-remove {
+  background: #ef444430;
+  color: #f87171;
+  border: 1px solid #ef444440;
+  padding: 0.4rem 0.6rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+.proof-item-row .btn-remove:hover {
+  background: #ef4444;
+  color: #fff;
+}
+.proof-add-btn {
+  background: #22c55e20;
+  color: #4ade80;
+  border: 1px dashed #22c55e50;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+  transition: all 0.2s;
+}
+.proof-add-btn:hover {
+  background: #22c55e30;
+  border-color: #4ade80;
+}
+.proof-submit-btn {
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+  color: #fff;
+  border: none;
+  padding: 0.5rem 1.25rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.2s;
+}
+.proof-submit-btn:hover {
+  background: linear-gradient(135deg, #a78bfa, #7c3aed);
+  box-shadow: 0 0 16px #8b5cf640;
+}
+.proof-submit-btn:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* ── Proof Viewer (Backer) ─────────────────────────────────────────── */
+.proof-section {
+  margin: 0.75rem 0;
+  padding: 0.75rem;
+  background: #14161e;
+  border: 1px solid #2a2d37;
+  border-radius: 8px;
+}
+.proof-section-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #c084fc;
+  margin-bottom: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+.proof-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 0.75rem;
+}
+.proof-card {
+  background: #1a1d27;
+  border: 1px solid #2a2d37;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.proof-card:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 0 12px #3b82f620;
+}
+.proof-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.6rem;
+  background: #22243080;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #2a2d37;
+}
+.proof-card-body {
+  padding: 0.6rem;
+}
+.proof-card-body.proof-text {
+  font-size: 0.85rem;
+  color: #d1d5db;
+  line-height: 1.5;
+  white-space: pre-wrap;
+}
+
+/* Proof Image */
+.proof-image-wrap {
+  cursor: pointer;
+  position: relative;
+}
+.proof-image-wrap img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  display: block;
+  border-radius: 0 0 6px 6px;
+  transition: opacity 0.2s;
+}
+.proof-image-wrap:hover img {
+  opacity: 0.85;
+}
+.proof-image-wrap::after {
+  content: "🔍 Click to expand";
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: #000000aa;
+  color: #e1e4ea;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+.proof-image-wrap:hover::after {
+  opacity: 1;
+}
+
+/* Proof Video */
+.proof-video-wrap {
+  position: relative;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+}
+.proof-video-wrap iframe,
+.proof-video-wrap video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 0 0 6px 6px;
+}
+
+/* Proof URL */
+.proof-url-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem;
+  color: #60a5fa;
+  font-size: 0.85rem;
+  text-decoration: none;
+  word-break: break-all;
+  transition: color 0.2s;
+}
+.proof-url-link:hover {
+  color: #93bbfc;
+  text-decoration: underline;
+}
+.proof-url-icon {
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+
+/* ── Lightbox ──────────────────────────────────────────────────────── */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: #000000dd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  cursor: pointer;
+  animation: fadeIn 0.2s ease;
+}
+.lightbox-overlay img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 0 40px #00000080;
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* ── Vote Actions ──────────────────────────────────────────────────── */
+.vote-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  align-items: center;
+}
+.vote-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.vote-btn.approve {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  color: #fff;
+}
+.vote-btn.approve:hover {
+  box-shadow: 0 0 20px #22c55e50;
+  transform: translateY(-1px);
+}
+.vote-btn.reject {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #fff;
+}
+.vote-btn.reject:hover {
+  box-shadow: 0 0 20px #ef444450;
+  transform: translateY(-1px);
+}
+
+/* ── Auto-Finalize Notice ──────────────────────────────────────────── */
+.auto-finalize-notice {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.5rem;
+  padding: 0.4rem 0.75rem;
+  background: #f59e0b15;
+  border: 1px solid #f59e0b30;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  color: #fbbf24;
+}
+
+/* ── Milestone status badge colors ─────────────────────────────────── */
+.badge-pending { background: #6b728020; color: #9ca3af; border: 1px solid #6b728040; }
+.badge-submitted { background: #f59e0b20; color: #fbbf24; border: 1px solid #f59e0b40; }
+.badge-approved { background: #22c55e20; color: #4ade80; border: 1px solid #22c55e40; }
+.badge-rejected { background: #ef444420; color: #f87171; border: 1px solid #ef444440; }
+
+.flex-wrap { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+
+/* Legacy report fallback */
+.report-fallback {
+  margin: 0.5rem 0;
+  padding: 0.5rem 0.75rem;
+  background: #14161e;
+  border: 1px solid #2a2d37;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  color: #d1d5db;
+  word-break: break-all;
+}

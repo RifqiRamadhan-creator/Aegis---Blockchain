@@ -221,6 +221,16 @@ contract AegisProject {
         }
 
         emit VoteCast(_milestoneId, msg.sender, _approve, weight);
+
+        // Auto-finalize when majority is reached (enables instant payout
+        // in single-backer demo scenarios)
+        uint256 majority = totalFunded / 2;
+        if (m.yesVotes > majority) {
+            _approveMilestone(_milestoneId);
+        } else if (m.noVotes > majority) {
+            m.status = MilestoneStatus.Rejected;
+            emit MilestoneRejected(_milestoneId);
+        }
     }
 
     function finalizeMilestone(uint256 _milestoneId)
@@ -233,21 +243,34 @@ contract AegisProject {
         require(block.timestamp > m.votingDeadline, "Voting still active");
 
         if (m.yesVotes > m.noVotes) {
-            m.status = MilestoneStatus.Approved;
-            uint256 amt = m.amount;
-            totalReleased += amt;
-
-            (bool sent, ) = payable(creator).call{value: amt}("");
-            require(sent, "Transfer failed");
-
-            emit MilestoneApproved(_milestoneId, amt);
-            emit FundsReleased(_milestoneId, amt);
-
-            _checkCompletion();
+            _approveMilestone(_milestoneId);
         } else {
             m.status = MilestoneStatus.Rejected;
             emit MilestoneRejected(_milestoneId);
         }
+    }
+
+    /**
+     * @dev Internal helper — approves a milestone and releases its funds.
+     *      Called both by auto-finalize (majority reached) and manual
+     *      finalizeMilestone (voting deadline passed).
+     */
+    function _approveMilestone(uint256 _milestoneId) internal {
+        Milestone storage m = milestones[_milestoneId];
+        // Guard: prevent double-release if already approved
+        require(m.status == MilestoneStatus.Submitted, "Already finalized");
+
+        m.status = MilestoneStatus.Approved;
+        uint256 amt = m.amount;
+        totalReleased += amt;
+
+        (bool sent, ) = payable(creator).call{value: amt}("");
+        require(sent, "Transfer failed");
+
+        emit MilestoneApproved(_milestoneId, amt);
+        emit FundsReleased(_milestoneId, amt);
+
+        _checkCompletion();
     }
 
     // ──────────────────────────── Refunds ──────────────────────────
