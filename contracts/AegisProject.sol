@@ -1,6 +1,11 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.28;
 
+interface IVotesToken {
+    function getPastVotes(address account, uint256 timepoint) external view returns (uint256);
+    function getPastTotalSupply(uint256 timepoint) external view returns (uint256);
+}
+
 /**
  * @title AegisProject
  * @author Aegis Platform
@@ -36,6 +41,7 @@ contract AegisProject {
         uint256 yesVotes;
         uint256 noVotes;
         uint256 votingDeadline;
+        uint256 snapshotBlock;
     }
 
     /// @dev Used to avoid stack-too-deep in constructor
@@ -46,7 +52,8 @@ contract AegisProject {
     }
 
     // ──────────────────────────── State ────────────────────────────
-
+    
+    IVotesToken public immutable governanceToken;
     address public creator;
     string public name;
     string public description;
@@ -87,11 +94,6 @@ contract AegisProject {
         _;
     }
 
-    modifier onlyBacker() {
-        require(contributions[msg.sender] > 0, "Only backers");
-        _;
-    }
-
     modifier inState(ProjectState _state) {
         require(state == _state, "Invalid project state");
         _;
@@ -100,6 +102,7 @@ contract AegisProject {
     // ──────────────────────────── Constructor ──────────────────────
 
     constructor(
+        address _governanceToken,
         address _creator,
         string memory _name,
         string memory _description,
@@ -109,6 +112,8 @@ contract AegisProject {
         uint256[] memory _mAmounts,
         uint256[] memory _mDeadlines
     ) {
+        require(_governanceToken != address(0), "Invalid token address");
+        governanceToken = IVotesToken(_governanceToken);
         require(_creator != address(0), "Invalid creator");
         require(_fundingGoal > 0, "Goal must be > 0");
         require(_fundingDeadline > block.timestamp, "Deadline must be in the future");
@@ -155,7 +160,8 @@ contract AegisProject {
                 reportURI: "",
                 yesVotes: 0,
                 noVotes: 0,
-                votingDeadline: 0
+                votingDeadline: 0,
+                snapshotBlock: 0
             }));
         }
     }
@@ -196,13 +202,14 @@ contract AegisProject {
         m.reportURI = _reportURI;
         m.status = MilestoneStatus.Submitted;
         m.votingDeadline = block.timestamp + VOTING_PERIOD;
+        m.snapshotBlock = block.number;
 
         emit MilestoneSubmitted(_milestoneId, _reportURI);
     }
 
     function voteOnMilestone(uint256 _milestoneId, bool _approve)
         external
-        onlyBacker
+        // onlyBacker
         inState(ProjectState.Active)
     {
         require(_milestoneId < milestones.length, "Invalid milestone");
@@ -212,7 +219,9 @@ contract AegisProject {
         require(!hasVoted[msg.sender][_milestoneId], "Already voted");
 
         hasVoted[msg.sender][_milestoneId] = true;
-        uint256 weight = contributions[msg.sender];
+        // uint256 weight = contributions[msg.sender];
+        uint256 weight = governanceToken.getPastVotes(msg.sender, m.snapshotBlock);
+        require(weight > 0, "No voting power at snapshot");
 
         if (_approve) {
             m.yesVotes += weight;
@@ -224,7 +233,9 @@ contract AegisProject {
 
         // Auto-finalize when majority is reached (enables instant payout
         // in single-backer demo scenarios)
-        uint256 majority = totalFunded / 2;
+        uint256 tokenSupplyAtSnapshot = governanceToken.getPastTotalSupply(m.snapshotBlock);
+        uint256 majority = tokenSupplyAtSnapshot / 2;
+
         if (m.yesVotes > majority) {
             _approveMilestone(_milestoneId);
         } else if (m.noVotes > majority) {
@@ -275,7 +286,8 @@ contract AegisProject {
 
     // ──────────────────────────── Refunds ──────────────────────────
 
-    function claimRefund() external onlyBacker {
+    function claimRefund() external {
+        require(contributions[msg.sender] > 0, "Only backers with contributions");
         require(
             state == ProjectState.Cancelled ||
             (state == ProjectState.Funding && block.timestamp > fundingDeadline),

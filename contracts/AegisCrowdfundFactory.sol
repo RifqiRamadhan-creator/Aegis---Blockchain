@@ -12,6 +12,9 @@ import "./AegisProject.sol";
 contract AegisCrowdfundFactory {
     // ──────────────────────────── State ────────────────────────────
 
+    /// @notice The global governance token address used for all project voting weights
+    address public immutable governanceToken;
+
     /// @notice Array of all deployed project addresses
     address[] public projects;
 
@@ -41,6 +44,13 @@ contract AegisCrowdfundFactory {
         uint256[] mDeadlines;
     }
 
+    // ──────────────────────────── Constructor ──────────────────────
+
+    constructor(address _governanceToken) {
+        require(_governanceToken != address(0), "Invalid token address");
+        governanceToken = _governanceToken;
+    }
+
     // ──────────────────────────── Functions ────────────────────────
 
     /**
@@ -53,6 +63,7 @@ contract AegisCrowdfundFactory {
         returns (address projectAddress)
     {
         AegisProject project = new AegisProject(
+            governanceToken,
             msg.sender,
             params.name,
             params.description,

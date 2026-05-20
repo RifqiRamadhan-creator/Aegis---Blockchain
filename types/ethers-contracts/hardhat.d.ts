@@ -12,15 +12,23 @@ declare module "@nomicfoundation/hardhat-ethers/types" {
   interface HardhatEthersHelpers extends HardhatEthersHelpersBase {
   getContractFactory(name: 'AegisCrowdfundFactory', signerOrOptions?: ethers.Signer | FactoryOptions): Promise<Contracts.AegisCrowdfundFactory__factory>
 getContractFactory(name: 'AegisProject', signerOrOptions?: ethers.Signer | FactoryOptions): Promise<Contracts.AegisProject__factory>
+getContractFactory(name: 'IVotesToken', signerOrOptions?: ethers.Signer | FactoryOptions): Promise<Contracts.IVotesToken__factory>
+getContractFactory(name: 'AegisToken', signerOrOptions?: ethers.Signer | FactoryOptions): Promise<Contracts.AegisToken__factory>
 
   getContractAt(name: 'AegisCrowdfundFactory', address: string | ethers.Addressable, signer?: ethers.Signer): Promise<Contracts.AegisCrowdfundFactory>
 getContractAt(name: 'AegisProject', address: string | ethers.Addressable, signer?: ethers.Signer): Promise<Contracts.AegisProject>
+getContractAt(name: 'IVotesToken', address: string | ethers.Addressable, signer?: ethers.Signer): Promise<Contracts.IVotesToken>
+getContractAt(name: 'AegisToken', address: string | ethers.Addressable, signer?: ethers.Signer): Promise<Contracts.AegisToken>
 
   deployContract(name: 'AegisCrowdfundFactory', signerOrOptions?: ethers.Signer | DeployContractOptions): Promise<Contracts.AegisCrowdfundFactory>
 deployContract(name: 'AegisProject', signerOrOptions?: ethers.Signer | DeployContractOptions): Promise<Contracts.AegisProject>
+deployContract(name: 'IVotesToken', signerOrOptions?: ethers.Signer | DeployContractOptions): Promise<Contracts.IVotesToken>
+deployContract(name: 'AegisToken', signerOrOptions?: ethers.Signer | DeployContractOptions): Promise<Contracts.AegisToken>
 
   deployContract(name: 'AegisCrowdfundFactory', args: any[], signerOrOptions?: ethers.Signer | DeployContractOptions): Promise<Contracts.AegisCrowdfundFactory>
 deployContract(name: 'AegisProject', args: any[], signerOrOptions?: ethers.Signer | DeployContractOptions): Promise<Contracts.AegisProject>
+deployContract(name: 'IVotesToken', args: any[], signerOrOptions?: ethers.Signer | DeployContractOptions): Promise<Contracts.IVotesToken>
+deployContract(name: 'AegisToken', args: any[], signerOrOptions?: ethers.Signer | DeployContractOptions): Promise<Contracts.AegisToken>
 
     // default types
     getContractFactory(

@@ -13,7 +13,7 @@ export declare namespace AegisCrowdfundFactory {
     }
 
   export interface AegisCrowdfundFactoryInterface extends Interface {
-    getFunction(nameOrSignature: "createProject" | "creatorProjects" | "getProjectCount" | "getProjects" | "getProjectsByCreator" | "projects"): FunctionFragment;
+    getFunction(nameOrSignature: "createProject" | "creatorProjects" | "getProjectCount" | "getProjects" | "getProjectsByCreator" | "governanceToken" | "projects"): FunctionFragment;
 
     getEvent(nameOrSignatureOrTopic: "ProjectCreated"): EventFragment;
 
@@ -22,6 +22,7 @@ encodeFunctionData(functionFragment: 'creatorProjects', values: [AddressLike, Bi
 encodeFunctionData(functionFragment: 'getProjectCount', values?: undefined): string;
 encodeFunctionData(functionFragment: 'getProjects', values?: undefined): string;
 encodeFunctionData(functionFragment: 'getProjectsByCreator', values: [AddressLike]): string;
+encodeFunctionData(functionFragment: 'governanceToken', values?: undefined): string;
 encodeFunctionData(functionFragment: 'projects', values: [BigNumberish]): string;
 
     decodeFunctionResult(functionFragment: 'createProject', data: BytesLike): Result;
@@ -29,6 +30,7 @@ decodeFunctionResult(functionFragment: 'creatorProjects', data: BytesLike): Resu
 decodeFunctionResult(functionFragment: 'getProjectCount', data: BytesLike): Result;
 decodeFunctionResult(functionFragment: 'getProjects', data: BytesLike): Result;
 decodeFunctionResult(functionFragment: 'getProjectsByCreator', data: BytesLike): Result;
+decodeFunctionResult(functionFragment: 'governanceToken', data: BytesLike): Result;
 decodeFunctionResult(functionFragment: 'projects', data: BytesLike): Result;
   }
 
@@ -119,6 +121,14 @@ decodeFunctionResult(functionFragment: 'projects', data: BytesLike): Result;
     
 
     
+    governanceToken: TypedContractMethod<
+      [],
+      [string],
+      'view'
+    >
+    
+
+    
     projects: TypedContractMethod<
       [arg0: BigNumberish, ],
       [string],
@@ -152,6 +162,11 @@ getFunction(nameOrSignature: 'getProjects'): TypedContractMethod<
 getFunction(nameOrSignature: 'getProjectsByCreator'): TypedContractMethod<
       [_creator: AddressLike, ],
       [string[]],
+      'view'
+    >;
+getFunction(nameOrSignature: 'governanceToken'): TypedContractMethod<
+      [],
+      [string],
       'view'
     >;
 getFunction(nameOrSignature: 'projects'): TypedContractMethod<
