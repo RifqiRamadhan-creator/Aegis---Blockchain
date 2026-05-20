@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useWeb3 } from "../context/Web3Context";
+import TokenPanel from "../components/TokenPanel";
 import { fmtEth, fmtDate, stateBadge, shortAddr } from "../utils/formatters";
 
 export default function Home() {
@@ -50,6 +51,7 @@ export default function Home() {
 
   return (
     <div>
+      <TokenPanel title="Aegis Token Dashboard" />
       <div className="flex-between mb-1">
         <h1>All Projects</h1>
         <button onClick={loadProjects} disabled={loading}>

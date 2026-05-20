@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useWeb3 } from "../context/Web3Context";
+import TokenPanel from "../components/TokenPanel";
 import { fmtEth, fmtDate, stateBadge, msLabel, shortAddr, parseEther } from "../utils/formatters";
 import { formatEther } from "ethers";
 
@@ -184,9 +185,10 @@ function Lightbox({ src, onClose }) {
 
 export default function ProjectDetail() {
   const { address } = useParams();
-  const { getProjectContract, account, provider } = useWeb3();
+  const { getProjectContract, account, provider, getTokenContract } = useWeb3();
   const [project, setProject] = useState(null);
   const [milestones, setMilestones] = useState([]);
+  const [tokenContract, setTokenContract] = useState(null);
   const [loading, setLoading] = useState(true);
   const [contributeAmt, setContributeAmt] = useState("");
   const [txStatus, setTxStatus] = useState("");
@@ -212,6 +214,7 @@ export default function ProjectDetail() {
     setLoading(true);
     try {
       const s = await contract.getProjectSummary();
+      const governanceTokenAddress = await contract.governanceToken();
       setProject({
         creator: s._creator,
         name: s._name,
@@ -223,7 +226,9 @@ export default function ProjectDetail() {
         milestoneCount: Number(s._milestoneCount),
         released: s._totalReleased,
         balance: await contract.getContractBalance(),
+        governanceToken: governanceTokenAddress,
       });
+      setTokenContract(getTokenContract(governanceTokenAddress));
 
       const m = await contract.getMilestones();
       const arr = [];
@@ -308,6 +313,14 @@ export default function ProjectDetail() {
         <h1>{project.name}</h1>
         <span className={`badge ${cls}`}>{label}</span>
       </div>
+      {tokenContract && (
+        <TokenPanel
+          title="Aegis Governance Token"
+          contract={tokenContract}
+          tokenAddress={project?.governanceToken}
+        />
+      )}
+
       <p className="text-muted mb-1">{project.description}</p>
 
       {/* Summary Card */}
@@ -403,6 +416,11 @@ export default function ProjectDetail() {
             {/* ── Proof Viewer (visible to everyone when proof exists) ────── */}
             {proofs.length > 0 && (
               <ProofViewer proofs={proofs} onImageClick={setLightboxSrc} />
+            )}
+            {isSubmitted && !isCreator && !m.hasVoted && (
+              <p className="text-sm text-muted" style={{ margin: "0.25rem 0" }}>
+                Make sure you have delegated your AegisToken votes to yourself before casting a vote.
+              </p>
             )}
 
             {/* ── Voting info ────────────────────────────────────────────── */}

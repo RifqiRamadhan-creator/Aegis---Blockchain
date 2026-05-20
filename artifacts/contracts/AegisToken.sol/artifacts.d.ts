@@ -15,7 +15,7 @@ export interface AegisToken$Type {
   readonly deployedLinkReferences: {};
   readonly immutableReferences: {"5184":[{"length":32,"start":4454}],"5186":[{"length":32,"start":4643}],"5188":[{"length":32,"start":4400}],"5190":[{"length":32,"start":4533}],"5192":[{"length":32,"start":4571}],"5195":[{"length":32,"start":2089}],"5198":[{"length":32,"start":2130}]};
   readonly inputSourceName: "project/contracts/AegisToken.sol";
-  readonly buildInfoId: "solc-0_8_28-ca16b59caa7a4f8bd63dba891c0c0d6d538bab9b";
+  readonly buildInfoId: "solc-0_8_28-248bad1c35b7c3118e56a79557439cec3b33b752";
 };
 
 import "hardhat/types/artifacts";

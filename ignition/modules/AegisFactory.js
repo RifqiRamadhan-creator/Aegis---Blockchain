@@ -1,8 +1,10 @@
 import { buildModule } from "@nomicfoundation/hardhat-ignition/modules";
 
 const AegisFactoryModule = buildModule("AegisFactoryModule", (m) => {
-  const factory = m.contract("AegisCrowdfundFactory");
-  return { factory };
+  const deployer = m.getAccount(0);
+  const govToken = m.contract("AegisToken", [deployer]);
+  const factory = m.contract("AegisCrowdfundFactory", [govToken]);
+  return { govToken, factory };
 });
 
 export default AegisFactoryModule;
