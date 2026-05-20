@@ -63,7 +63,7 @@ function ProofBuilder({ items, onChange, onSubmit, disabled }) {
 
   return (
     <div className="proof-builder">
-      <h4>Attach Proof of Work</h4>
+      <h4>📎 Attach Proof of Work</h4>
 
       {items.map((p, i) => (
         <div className="proof-item-row" key={i}>
@@ -108,7 +108,7 @@ function ProofViewer({ proofs, onImageClick }) {
 
   return (
     <div className="proof-section">
-      <div className="proof-section-title">Submitted Proof ({proofs.length} item{proofs.length !== 1 ? "s" : ""})</div>
+      <div className="proof-section-title">📋 Submitted Proof ({proofs.length} item{proofs.length !== 1 ? "s" : ""})</div>
       <div className="proof-grid">
         {proofs.map((p, i) => (
           <ProofCard key={i} proof={p} onImageClick={onImageClick} />
@@ -125,7 +125,7 @@ function ProofCard({ proof, onImageClick }) {
   if (type === "image") {
     return (
       <div className="proof-card">
-        <div className="proof-card-header">Image</div>
+        <div className="proof-card-header">🖼️ Image</div>
         <div className="proof-image-wrap" onClick={() => onImageClick(value)}>
           <img src={value} alt="Proof" loading="lazy" onError={(e) => { e.target.style.display = "none"; }} />
         </div>
@@ -138,7 +138,7 @@ function ProofCard({ proof, onImageClick }) {
     const isEmbed = embedUrl !== value || value.includes("embed");
     return (
       <div className="proof-card">
-        <div className="proof-card-header">Video</div>
+        <div className="proof-card-header">🎬 Video</div>
         <div className="proof-video-wrap">
           {isEmbed ? (
             <iframe src={embedUrl} allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowFullScreen title="Proof video" />
@@ -153,7 +153,7 @@ function ProofCard({ proof, onImageClick }) {
   if (type === "url") {
     return (
       <div className="proof-card">
-        <div className="proof-card-header">URL / Beta Link</div>
+        <div className="proof-card-header">🔗 URL / Beta Link</div>
         <a href={value} target="_blank" rel="noopener noreferrer" className="proof-url-link">
           {value}
         </a>
@@ -164,7 +164,7 @@ function ProofCard({ proof, onImageClick }) {
   // type === "text" or legacy
   return (
     <div className="proof-card">
-      <div className="proof-card-header">Note</div>
+      <div className="proof-card-header">📝 Note</div>
       <div className="proof-card-body proof-text">{value}</div>
     </div>
   );
@@ -288,9 +288,9 @@ export default function ProjectDetail() {
   }
 
   // ─── Guards ────────────────────────────────────────────────────────────────
-  if (!account) return <p className="text-muted text-center mt-1">Connect wallet first.</p>;
-  if (loading) return <p className="text-muted text-center mt-1">Loading…</p>;
-  if (!project) return <p className="error text-center mt-1">Failed to load project.</p>;
+  if (!account) return <div className="connect-prompt"><span className="prompt-icon">🔗</span><p>Connect wallet first.</p></div>;
+  if (loading) return <div className="loading-state"><div className="loading-spinner" /><p>Loading project…</p></div>;
+  if (!project) return <div className="connect-prompt"><span className="prompt-icon">⚠️</span><p className="error">Failed to load project.</p></div>;
 
   const { label, cls } = stateBadge(project.state);
   const isCreator = account.toLowerCase() === project.creator.toLowerCase();
@@ -304,45 +304,93 @@ export default function ProjectDetail() {
       <Lightbox src={lightboxSrc} onClose={() => setLightboxSrc(null)} />
 
       {/* Header */}
-      <div className="flex-between">
-        <h1>{project.name}</h1>
-        <span className={`badge ${cls}`}>{label}</span>
+      <div className="page-header">
+        <div className="flex-between">
+          <h1><span className="gradient-text">{project.name}</span></h1>
+          <span className={`badge ${cls}`}>{label}</span>
+        </div>
+        <p className="subtitle">{project.description}</p>
       </div>
-      <p className="text-muted mb-1">{project.description}</p>
 
       {/* Summary Card */}
       <div className="card">
-        <div className="flex-between text-sm">
-          <span>Creator: {shortAddr(project.creator)} {isCreator && "(you)"}</span>
-          <span>Contract: {shortAddr(address)}</span>
-        </div>
-        <div className="flex-between text-sm mt-1">
-          <span>Funded: {fmtEth(project.funded)} / {fmtEth(project.goal)} ETH ({pct}%)</span>
-          <span>Released: {fmtEth(project.released)} ETH</span>
-        </div>
-        <div className="flex-between text-sm" style={{ marginTop: "0.25rem" }}>
-          <span>Contract Balance: {fmtEth(project.balance)} ETH</span>
-          <span>Deadline: {fmtDate(project.deadline)}</span>
-        </div>
-        {creatorBalance !== null && (
-          <div className="flex-between text-sm" style={{ marginTop: "0.25rem" }}>
-            <span>Developer Wallet: {parseFloat(formatEther(creatorBalance)).toFixed(4)} ETH</span>
+        <div className="flex-between" style={{ alignItems: 'flex-start' }}>
+          <div style={{ flex: 1 }}>
+            <div className="stat-grid">
+              <div className="stat-item">
+                <span className="stat-label">Creator</span>
+                <span className="stat-value">{shortAddr(project.creator)} {isCreator && <span className="text-muted">(you)</span>}</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-label">Contract</span>
+                <span className="stat-value">{shortAddr(address)}</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-label">Funded</span>
+                <span className="stat-value">{fmtEth(project.funded)} / {fmtEth(project.goal)} ETH</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-label">Released</span>
+                <span className="stat-value">{fmtEth(project.released)} ETH</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-label">Contract Balance</span>
+                <span className="stat-value">{fmtEth(project.balance)} ETH</span>
+              </div>
+              <div className="stat-item">
+                <span className="stat-label">Deadline</span>
+                <span className="stat-value">{fmtDate(project.deadline)}</span>
+              </div>
+              {creatorBalance !== null && (
+                <div className="stat-item">
+                  <span className="stat-label">Developer Wallet</span>
+                  <span className="stat-value">{parseFloat(formatEther(creatorBalance)).toFixed(4)} ETH</span>
+                </div>
+              )}
+            </div>
           </div>
-        )}
+
+          {/* Progress Ring */}
+          <div className="progress-ring-wrapper" style={{ marginLeft: '1.5rem' }}>
+            <svg className="progress-ring" viewBox="0 0 56 56">
+              <defs>
+                <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                  <stop offset="0%" stopColor="#8b5cf6" />
+                  <stop offset="100%" stopColor="#06b6d4" />
+                </linearGradient>
+              </defs>
+              <circle className="ring-bg" cx="28" cy="28" r="24" />
+              <circle
+                className="ring-fill"
+                cx="28" cy="28" r="24"
+                strokeDasharray={`${2 * Math.PI * 24}`}
+                strokeDashoffset={`${2 * Math.PI * 24 * (1 - Math.min(pct, 100) / 100)}`}
+              />
+            </svg>
+            <div>
+              <div className="progress-ring-text gradient-text">{pct}%</div>
+              <div className="text-xs text-muted">funded</div>
+            </div>
+          </div>
+        </div>
+
+        {/* Progress Bar */}
+        <div className="progress-bar-track" style={{ marginTop: '1rem' }}>
+          <div className="progress-bar-fill" style={{ width: `${Math.min(pct, 100)}%` }} />
+        </div>
       </div>
 
       {/* Contribute (Funding state only) */}
       {isFunding && (
         <div className="card">
-          <h3>Contribute</h3>
-          <div className="flex" style={{ marginTop: "0.5rem" }}>
+          <h3>💰 Contribute</h3>
+          <div className="contribute-section">
             <input
               type="number"
               step="0.001"
               placeholder="ETH amount"
               value={contributeAmt}
               onChange={(e) => setContributeAmt(e.target.value)}
-              style={{ marginBottom: 0 }}
             />
             <button
               onClick={() =>
@@ -352,14 +400,14 @@ export default function ProjectDetail() {
               }
               disabled={!contributeAmt}
             >
-              Fund
+              Fund Project
             </button>
           </div>
         </div>
       )}
 
-      {/* Cancel / Refund */}
-      <div className="flex" style={{ marginBottom: "1rem" }}>
+      {/* Cancel / Refund / Refresh */}
+      <div className="action-bar">
         {(isFunding || isActive) && isCreator && (
           <button className="btn-danger" onClick={() => doTx("Cancelling", () => contract.cancelProject())}>
             Cancel Project
@@ -370,11 +418,11 @@ export default function ProjectDetail() {
             Claim Refund
           </button>
         )}
-        <button className="btn-secondary" onClick={loadProject}>Refresh</button>
+        <button className="btn-secondary" onClick={loadProject}>🔄 Refresh</button>
       </div>
 
-      {/* ─── Milestones ─────────────────────────────────────────────────────── */}
-      <h2>Milestones</h2>
+      {/* Milestones */}
+      <h2><span className="gradient-text">Milestones</span></h2>
       {milestones.map((m, i) => {
         const msStatus = msLabel(m.status);
         const isSubmitted = m.status === 1;
@@ -384,45 +432,50 @@ export default function ProjectDetail() {
         const votingEnded = m.votingDeadline > 0 && Date.now() / 1000 > Number(m.votingDeadline);
         const proofs = parseProofs(m.reportURI);
 
-        // Badge class based on milestone status
+        const statusClass = isPending ? "status-pending" :
+          isSubmitted ? "status-submitted" :
+            isApproved ? "status-approved" :
+              isRejected ? "status-rejected" : "status-pending";
+
         const badgeCls = isPending ? "badge-pending" :
           isSubmitted ? "badge-submitted" :
             isApproved ? "badge-approved" :
               isRejected ? "badge-rejected" : "badge-active";
 
         return (
-          <div className="card" key={i}>
-            <div className="flex-between">
-              <h3>#{i + 1}: {m.description}</h3>
+          <div className={`milestone-card ${statusClass}`} key={i} style={{ animationDelay: `${i * 0.1}s` }}>
+            <div className="milestone-header">
+              <h3 className="milestone-title">#{i + 1}: {m.description}</h3>
               <span className={`badge ${badgeCls}`}>{msStatus}</span>
             </div>
-            <div className="text-sm text-muted" style={{ margin: "0.25rem 0" }}>
-              Amount: {fmtEth(m.amount)} ETH · Deadline: {fmtDate(m.deadline)}
+            <div className="milestone-meta">
+              <span>💎 {fmtEth(m.amount)} ETH</span>
+              <span>📅 {fmtDate(m.deadline)}</span>
             </div>
 
-            {/* ── Proof Viewer (visible to everyone when proof exists) ────── */}
+            {/* Proof Viewer */}
             {proofs.length > 0 && (
               <ProofViewer proofs={proofs} onImageClick={setLightboxSrc} />
             )}
 
-            {/* ── Voting info ────────────────────────────────────────────── */}
+            {/* Voting info */}
             {isSubmitted && (
-              <div className="text-sm" style={{ margin: "0.25rem 0" }}>
-                Votes: Yes {fmtEth(m.yesVotes)} / No {fmtEth(m.noVotes)} ETH
+              <div className="text-sm" style={{ margin: "0.5rem 0" }}>
+                Votes: ✅ {fmtEth(m.yesVotes)} / ❌ {fmtEth(m.noVotes)} ETH
                 {m.votingDeadline > 0 && (
                   <span className="text-muted"> · Voting ends: {fmtDate(m.votingDeadline)}</span>
                 )}
               </div>
             )}
 
-            {/* ── Auto-finalize notice (approved milestone) ──────────────── */}
+            {/* Auto-finalize notice */}
             {isApproved && (
               <div className="auto-finalize-notice">
-                Funds automatically released — {fmtEth(m.amount)} ETH sent to developer
+                ✅ Funds automatically released — {fmtEth(m.amount)} ETH sent to developer
               </div>
             )}
 
-            {/* ── Creator: Proof Builder (submit proof for pending milestones) ── */}
+            {/* Creator: Proof Builder */}
             {isPending && isCreator && (
               <ProofBuilder
                 items={getProofDraft(i)}
@@ -436,7 +489,7 @@ export default function ProjectDetail() {
               />
             )}
 
-            {/* ── Backer: Vote buttons ───────────────────────────────────── */}
+            {/* Backer: Vote buttons */}
             {isActive && isSubmitted && !isCreator && !m.hasVoted && !votingEnded && (
               <div className="vote-actions">
                 <button
@@ -447,7 +500,7 @@ export default function ProjectDetail() {
                     )
                   }
                 >
-                  Approve Milestone
+                  👍 Approve Milestone
                 </button>
                 <button
                   className="vote-btn reject"
@@ -457,25 +510,25 @@ export default function ProjectDetail() {
                     )
                   }
                 >
-                  Reject Milestone
+                  👎 Reject Milestone
                 </button>
               </div>
             )}
 
             {/* Already voted notice */}
             {isSubmitted && m.hasVoted && (
-              <p className="text-sm text-muted" style={{ marginTop: "0.25rem" }}>You already voted on this milestone.</p>
+              <p className="text-sm text-muted" style={{ marginTop: "0.5rem" }}>✓ You already voted on this milestone.</p>
             )}
 
-            {/* Finalize button (voting ended but not yet finalized) */}
+            {/* Finalize button */}
             {isActive && isSubmitted && votingEnded && (
               <button
-                style={{ marginTop: "0.5rem" }}
+                style={{ marginTop: "0.75rem" }}
                 onClick={() =>
                   doTx("Finalizing milestone", () => contract.finalizeMilestone(i))
                 }
               >
-                Finalize Milestone
+                ⚡ Finalize Milestone
               </button>
             )}
           </div>
@@ -484,7 +537,9 @@ export default function ProjectDetail() {
 
       {/* TX Status */}
       {txStatus && (
-        <p className={txStatus.startsWith("Error") ? "error mt-1" : "success mt-1"}>{txStatus}</p>
+        <div className={`tx-status ${txStatus.startsWith("Error") ? "tx-error" : "tx-success"}`}>
+          {txStatus}
+        </div>
       )}
     </div>
   );
