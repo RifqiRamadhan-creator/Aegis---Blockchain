@@ -83,6 +83,9 @@ export default function Home() {
       <div className="hero">
         <h1><span className="gradient-text">Discover Projects</span></h1>
         <p>Fund innovative ideas with ETH. Track milestones. Vote on progress.</p>
+        <Link to="/explore" style={{ marginTop: "0.75rem", display: "inline-block" }}>
+          <button className="btn-secondary">🔍 Explore All Projects →</button>
+        </Link>
       </div>
 
       {/* Search + Refresh */}

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useWeb3 } from "../context/Web3Context";
 import { fmtEth, fmtDate, stateBadge, msLabel, shortAddr, parseEther } from "../utils/formatters";
 import { formatEther } from "ethers";
@@ -319,7 +319,12 @@ export default function ProjectDetail() {
             <div className="stat-grid">
               <div className="stat-item">
                 <span className="stat-label">Creator</span>
-                <span className="stat-value">{shortAddr(project.creator)} {isCreator && <span className="text-muted">(you)</span>}</span>
+                <span className="stat-value">
+                  <Link to={`/profile/${project.creator}`} style={{ color: 'var(--text-accent)', textDecoration: 'none' }}>
+                    {shortAddr(project.creator)}
+                  </Link>
+                  {isCreator && <span className="text-muted"> (you)</span>}
+                </span>
               </div>
               <div className="stat-item">
                 <span className="stat-label">Contract</span>
@@ -406,12 +411,12 @@ export default function ProjectDetail() {
         </div>
       )}
 
-      {/* Cancel / Refund / Refresh */}
+      {/* Actions */}
       <div className="action-bar">
-        {(isFunding || isActive) && isCreator && (
-          <button className="btn-danger" onClick={() => doTx("Cancelling", () => contract.cancelProject())}>
-            Cancel Project
-          </button>
+        {isCreator && (isFunding || isActive) && (
+          <Link to={`/project/${address}/manage`}>
+            <button className="btn-primary">⚙ Manage Project</button>
+          </Link>
         )}
         {(isCancelled || isFunding) && !isCreator && (
           <button className="btn-secondary" onClick={() => doTx("Claiming refund", () => contract.claimRefund())}>
@@ -475,18 +480,13 @@ export default function ProjectDetail() {
               </div>
             )}
 
-            {/* Creator: Proof Builder */}
+            {/* Creator: link to manage page */}
             {isPending && isCreator && (
-              <ProofBuilder
-                items={getProofDraft(i)}
-                onChange={(items) => setProofDraft(i, items)}
-                disabled={txStatus.includes("…")}
-                onSubmit={(json) =>
-                  doTx("Submitting milestone proof", () =>
-                    contract.submitMilestoneReport(i, json)
-                  )
-                }
-              />
+              <div style={{ marginTop: "0.75rem" }}>
+                <Link to={`/project/${address}/manage`}>
+                  <button className="btn-secondary" style={{ fontSize: "0.85rem" }}>📝 Submit proof on Manage page →</button>
+                </Link>
+              </div>
             )}
 
             {/* Backer: Vote buttons */}

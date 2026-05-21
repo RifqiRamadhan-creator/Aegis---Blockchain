@@ -1,96 +1,56 @@
-import { BrowserRouter, Routes, Route, Link, NavLink, Navigate } from "react-router-dom";
-import { Web3Provider, useWeb3 } from "./context/Web3Context";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Web3Provider } from "./context/Web3Context";
+import { ToastProvider } from "./context/ToastContext";
+import ErrorBoundary from "./components/ErrorBoundary";
+
+// Layouts
+import MainLayout from "./layouts/MainLayout";
+import LandingLayout from "./layouts/LandingLayout";
+
+// Pages
 import Home from "./pages/Home";
 import Landing from "./pages/Landing";
 import CreateProject from "./pages/CreateProject";
 import ProjectDetail from "./pages/ProjectDetail";
+import ProjectManage from "./pages/ProjectManage";
 import Dashboard from "./pages/Dashboard";
 import About from "./pages/About";
-import { shortAddr } from "./utils/formatters";
-
-function Navbar() {
-  const { account, connect, disconnect, FACTORY_ADDRESS } = useWeb3();
-  return (
-    <nav>
-      <div className="flex" style={{ gap: "1.5rem" }}>
-        <NavLink to="/landing" className="logo" style={{ textDecoration: "none" }}>
-          ⛨ Aegis
-        </NavLink>
-        <div className="nav-links">
-          <NavLink to="/" end className={({ isActive }) => isActive ? "nav-active" : ""}>
-            Projects
-          </NavLink>
-          <NavLink to="/about" className={({ isActive }) => isActive ? "nav-active" : ""}>
-            About
-          </NavLink>
-          {account && (
-            <NavLink to="/dashboard" className={({ isActive }) => isActive ? "nav-active" : ""}>
-              Dashboard
-            </NavLink>
-          )}
-          {account && (
-            <NavLink to="/create" className={({ isActive }) => isActive ? "nav-active" : ""}>
-              Create
-            </NavLink>
-          )}
-        </div>
-      </div>
-      <div className="wallet-actions">
-        {!FACTORY_ADDRESS && (
-          <span className="factory-warning">⚠ No factory address</span>
-        )}
-        {account ? (
-          <>
-            <span className="account">{shortAddr(account)}</span>
-            <button className="btn-secondary" onClick={disconnect}>Disconnect</button>
-          </>
-        ) : (
-          <button className="btn-shimmer" onClick={connect}>Connect Wallet</button>
-        )}
-      </div>
-    </nav>
-  );
-}
-
-function AppRoutes() {
-  return (
-    <Routes>
-      {/* Landing gets its own full-width layout — no .container wrapper */}
-      <Route path="/landing" element={<Landing />} />
-      <Route path="*" element={
-        <div className="container">
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/create" element={<CreateProject />} />
-            <Route path="/project/:address" element={<ProjectDetail />} />
-            <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/about" element={<About />} />
-            <Route path="*" element={<Navigate to="/landing" replace />} />
-          </Routes>
-        </div>
-      } />
-    </Routes>
-  );
-}
+import Explore from "./pages/Explore";
+import Profile from "./pages/Profile";
+import Activity from "./pages/Activity";
+import Guide from "./pages/Guide";
+import NotFound from "./pages/NotFound";
 
 export default function App() {
   return (
     <Web3Provider>
-      <BrowserRouter>
-        <Navbar />
-        <AppRoutes />
-        <footer className="app-footer">
-          <div className="footer-inner">
-            <span className="footer-brand">⛨ Aegis</span>
-            <span className="footer-sep">·</span>
-            <span>Milestone-Based Crowdfunding on Ethereum</span>
-            <span className="footer-sep">·</span>
-            <Link to="/about">About</Link>
-            <span className="footer-sep">·</span>
-            <Link to="/create">Create Project</Link>
-          </div>
-        </footer>
-      </BrowserRouter>
+      <ToastProvider>
+        <BrowserRouter>
+          <ErrorBoundary>
+            <Routes>
+              {/* Full-width layout for landing */}
+              <Route element={<LandingLayout />}>
+                <Route path="/landing" element={<Landing />} />
+              </Route>
+
+              {/* Main contained layout */}
+              <Route element={<MainLayout />}>
+                <Route path="/" element={<Home />} />
+                <Route path="/explore" element={<Explore />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/guide" element={<Guide />} />
+                <Route path="/activity" element={<Activity />} />
+                <Route path="/profile/:address" element={<Profile />} />
+                <Route path="/project/:address" element={<ProjectDetail />} />
+                <Route path="/project/:address/manage" element={<ProjectManage />} />
+                <Route path="/create" element={<CreateProject />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="*" element={<NotFound />} />
+              </Route>
+            </Routes>
+          </ErrorBoundary>
+        </BrowserRouter>
+      </ToastProvider>
     </Web3Provider>
   );
 }
