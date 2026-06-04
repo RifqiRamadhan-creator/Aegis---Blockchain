@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.1.7)  4 JUN 2026 10:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.1.7)  4 JUN 2026 11:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -763,9 +763,9 @@ Package fancyhdr Warning: \headheight is too small (18.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-35.46652pt}.
 
 [19 <./photos/screenshot-dashboard.png> <./photos/screenshot-transaksi.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 433--434
-[]\T1/lmr/m/n/10 OpenZeppelin, ``Open-Zep-pelin Con-tracts,'' []$\T1/lmtt/m/n/1
-0 https : / / github . com / OpenZeppelin /
+Underfull \hbox (badness 2698) in paragraph at lines 439--440
+[]\T1/lmr/m/n/10 V. Bu-terin, ``Ethereum Whitepa-per,'' 2014. [On-line]. Avail-
+able: []$\T1/lmtt/m/n/10 https : / / ethereum . org / en /
  []
 
 
@@ -775,7 +775,20 @@ Package fancyhdr Warning: \headheight is too small (18.0pt):
 (fancyhdr)                You might also make \topmargin smaller:
 (fancyhdr)                \addtolength{\topmargin}{-35.46652pt}.
 
-[20] (./report.aux)
+[20]
+Underfull \hbox (badness 1852) in paragraph at lines 481--482
+[]\T1/lmr/m/n/10 OpenZeppelin, ``Open-Zep-pelin Smart Con-tract Li-brary,'' 202
+6. [On-line]. Avail-able: []$\T1/lmtt/m/n/10 https : / /
+ []
+
+
+Package fancyhdr Warning: \headheight is too small (18.0pt): 
+(fancyhdr)                Make it at least 53.46652pt, for example:
+(fancyhdr)                \setlength{\headheight}{53.46652pt}.
+(fancyhdr)                You might also make \topmargin smaller:
+(fancyhdr)                \addtolength{\topmargin}{-35.46652pt}.
+
+[21] (./report.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-29>
@@ -784,14 +797,23 @@ L3 programming layer <2025-12-29>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: 5C756137335CC21450AC85E682AF5A13;13042.
+
+LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+
+
+Package rerunfilecheck Warning: File `report.out' has changed.
+(rerunfilecheck)                Rerun to get outlines right
+(rerunfilecheck)                or use package `bookmark'.
+
+Package rerunfilecheck Info: Checksums for `report.out':
+(rerunfilecheck)             Before: 421A5A139BA595DFB348AF40A5E7E09D;13117
+(rerunfilecheck)             After:  5C756137335CC21450AC85E682AF5A13;13042.
  ) 
 Here is how much of TeX's memory you used:
- 10617 strings out of 467538
- 165167 string characters out of 5423726
+ 10657 strings out of 467538
+ 165965 string characters out of 5423726
  585284 words of memory out of 5000000
- 39258 multiletter control sequences out of 15000+600000
+ 39278 multiletter control sequences out of 15000+600000
  680589 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,13n,79p,823b,554s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -801,10 +823,10 @@ type1/public/lm/lmcsc10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/l
 mr10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texliv
 e/2025/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/texlive/2025/texmf-dist/
 fonts/type1/public/lm/lmtt10.pfb>
-Output written on report.pdf (20 pages, 2714085 bytes).
+Output written on report.pdf (21 pages, 2722310 bytes).
 PDF statistics:
- 595 PDF objects out of 1000 (max. 8388607)
- 538 compressed objects within 6 object streams
- 120 named destinations out of 1000 (max. 500000)
+ 629 PDF objects out of 1000 (max. 8388607)
+ 571 compressed objects within 6 object streams
+ 140 named destinations out of 1000 (max. 500000)
  641 words of extra memory for PDF output out of 10000 (max. 10000000)
 
