@@ -2,8 +2,8 @@ This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded forma
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**main.tex
-(./main.tex
+**main-en-us.tex
+(./main-en-us.tex
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-29>
 (c:/texlive/2025/texmf-dist/tex/latex/ieeetran/IEEEtran.cls
@@ -250,8 +250,8 @@ LaTeX Info: Redefining \] on input line 2951.
 File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count306
 )
-(./main.aux)
-\openout1 = `main.aux'.
+(./main-en-us.aux)
+\openout1 = `main-en-us.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
 LaTeX Font Info:    ... okay on input line 25.
@@ -439,7 +439,7 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[6] (./main.aux)
+[6] (./main-en-us.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2025-12-29>
@@ -447,12 +447,12 @@ L3 programming layer <2025-12-29>
  ) 
 Here is how much of TeX's memory you used:
  3984 strings out of 467538
- 64988 string characters out of 5423726
- 484343 words of memory out of 5000000
+ 65060 string characters out of 5423726
+ 484349 words of memory out of 5000000
  32835 multiletter control sequences out of 15000+600000
  740812 words of font info for 146 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 59i,9n,67p,1230b,368s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 59i,9n,67p,1236b,368s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/tex
 live/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2025
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2025/texmf-dis
@@ -464,7 +464,7 @@ fb><c:/texlive/2025/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/texlive/2
 025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2025/texmf-dist/fon
 ts/type1/urw/times/utmbi8a.pfb><c:/texlive/2025/texmf-dist/fonts/type1/urw/time
 s/utmr8a.pfb><c:/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (6 pages, 275804 bytes).
+Output written on main-en-us.pdf (6 pages, 275804 bytes).
 PDF statistics:
  93 PDF objects out of 1000 (max. 8388607)
  55 compressed objects within 1 object stream
