@@ -1,0 +1,87 @@
+digraph ActivityDiagram {
+    fontname="Helvetica,Arial,sans-serif"
+    node [fontname="Helvetica,Arial,sans-serif" fontsize=10]
+    edge [fontname="Helvetica,Arial,sans-serif" fontsize=10]
+    
+    // Start / End
+    Start [shape=circle, label="", style=filled, color=black, width=0.3, height=0.3];
+    EndFundingFailed [shape=doublecircle, label="", style=filled, color=black, width=0.3, height=0.3];
+    EndCompleted [shape=doublecircle, label="", style=filled, color=black, width=0.3, height=0.3];
+    EndCancelled [shape=doublecircle, label="", style=filled, color=black, width=0.3, height=0.3];
+
+    // Actions
+    DeployFactory [shape=box, label="Deploy AegisCrowdfundFactory", style=rounded];
+    CreateProject [shape=box, label="Kreator membuat Proyek\n(Set Target Pendanaan, Deadline, & Milestone)", style=rounded];
+    StateFunding [shape=box, label="Status Proyek: Funding\n(Menerima kontribusi ETH dari Backer)", style=rounded];
+    
+    CheckGoal [shape=diamond, label="Target Pendanaan\nTercapai?"];
+    CheckDeadline [shape=diamond, label="Deadline\nTerlewati?"];
+    
+    RefundFundingFailed [shape=box, label="Backers mengklaim 100% Refund\nvia claimRefund()", style=rounded];
+    
+    StateActive [shape=box, label="Status Proyek: Active\n(Pendanaan Sukses)", style=rounded];
+    
+    WorkMilestone [shape=box, label="Kreator mengerjakan Proyek\nsesuai rencana milestone", style=rounded];
+    SubmitReport [shape=box, label="Kreator mengajukan Laporan Milestone\n(submitMilestoneReport) dengan URL Bukti", style=rounded];
+    
+    VotingPeriod [shape=box, label="Voting Milestone oleh Backers (7 Hari)\nBobot suara = Jumlah Kontribusi", style=rounded];
+    
+    CheckVoteMajority [shape=diamond, label="Apakah suara YES > 50%\natau NO > 50%?"];
+    CheckFinalize [shape=diamond, label="Voting Deadline Berakhir?\n(Manual Finalize)"];
+    CheckFinalizeVotes [shape=diamond, label="Apakah YES > NO?"];
+    
+    ReleaseMilestoneFunds [shape=box, label="Dana Milestone ditransfer ke Kreator\n(status = Approved)", style=rounded];
+    MilestoneRejected [shape=box, label="Milestone ditolak\n(status = Rejected)", style=rounded];
+    
+    CheckAllMilestones [shape=diamond, label="Apakah semua\nmilestone disetujui?"];
+    StateCompleted [shape=box, label="Status Proyek: Completed", style=rounded];
+    
+    CheckCancelProject [shape=diamond, label="Kreator/Backer membatalkan\nproyek (cancelProject)?"];
+    StateCancelled [shape=box, label="Status Proyek: Cancelled", style=rounded];
+    RefundRemaining [shape=box, label="Backers mengklaim Proportional Refund\n(sisa balance di smart contract)", style=rounded];
+    
+    // Connections
+    Start -> DeployFactory;
+    DeployFactory -> CreateProject;
+    CreateProject -> StateFunding;
+    
+    StateFunding -> CheckGoal;
+    
+    CheckGoal -> StateActive [label="Ya (Target Tercapai)"];
+    CheckGoal -> CheckDeadline [label="Tidak"];
+    
+    CheckDeadline -> StateFunding [label="Tidak (Masih Funding)"];
+    CheckDeadline -> StateCancelled [label="Ya (Funding Gagal)"];
+    
+    StateActive -> WorkMilestone;
+    WorkMilestone -> SubmitReport;
+    SubmitReport -> VotingPeriod;
+    VotingPeriod -> CheckVoteMajority;
+    
+    // Vote Majority Check (Auto-finalize)
+    CheckVoteMajority -> ReleaseMilestoneFunds [label="YES > 50%"];
+    CheckVoteMajority -> MilestoneRejected [label="NO > 50%"];
+    CheckVoteMajority -> CheckFinalize [label="Tidak Ada Mayoritas Mutlak"];
+    
+    // Manual Finalize after 7 days
+    CheckFinalize -> VotingPeriod [label="Belum Habis"];
+    CheckFinalize -> CheckFinalizeVotes [label="Sudah Habis"];
+    
+    CheckFinalizeVotes -> ReleaseMilestoneFunds [label="YES > NO"];
+    CheckFinalizeVotes -> MilestoneRejected [label="YES <= NO"];
+    
+    // After Release
+    ReleaseMilestoneFunds -> CheckAllMilestones;
+    CheckAllMilestones -> StateCompleted [label="Ya"];
+    CheckAllMilestones -> WorkMilestone [label="Tidak (Milestone Berikutnya)"];
+    
+    StateCompleted -> EndCompleted;
+    
+    // After Rejection / Cancel check
+    MilestoneRejected -> CheckCancelProject;
+    CheckCancelProject -> WorkMilestone [label="Tidak (Ajukan Ulang / Perbaiki)"];
+    CheckCancelProject -> StateCancelled [label="Ya (Batal)"];
+    
+    StateCancelled -> RefundRemaining;
+    RefundRemaining -> EndCancelled;
+}

@@ -1,0 +1,22 @@
+digraph G {
+    fontname="Bitstream Vera Sans"
+    fontsize=10
+    node [fontname="Bitstream Vera Sans" fontsize=9 shape=record]
+    edge [fontname="Bitstream Vera Sans" fontsize=9]
+
+    AegisCrowdfundFactory [label="{\<contracts\>\lAegisCrowdfundFactory|+ projects : address[]\l+ creatorProjects : mapping(address =\> address[])\l|+ createProject(params : CreateProjectParams) : address\l+ getProjects() : address[]\l+ getProjectCount() : uint256\l+ getProjectsByCreator(_creator : address) : address[]\l}"]
+
+    AegisProject [label="{\<contracts\>\lAegisProject|+ creator : address\l+ name : string\l+ description : string\l+ fundingGoal : uint256\l+ fundingDeadline : uint256\l+ totalFunded : uint256\l+ totalReleased : uint256\l+ state : ProjectState\l+ milestones : Milestone[]\l+ contributions : mapping(address =\> uint256)\l+ hasVoted : mapping(address =\> mapping(uint256 =\> bool))\l+ backers : address[]\l|+ contribute() payable\l+ submitMilestoneReport(_milestoneId : uint256, _reportURI : string)\l+ voteOnMilestone(_milestoneId : uint256, _approve : bool)\l+ finalizeMilestone(_milestoneId : uint256)\l+ claimRefund()\l+ cancelProject()\l+ getMilestones() : tuple\l+ getProjectSummary() : tuple\l}"]
+
+    Milestone [label="{\<struct\>\lMilestone|+ description : string\l+ amount : uint256\l+ deadline : uint256\l+ status : MilestoneStatus\l+ reportURI : string\l+ yesVotes : uint256\l+ noVotes : uint256\l+ votingDeadline : uint256\l}"]
+
+    ProjectState [label="{\<enum\>\lProjectState|Funding\lActive\lCompleted\lCancelled\l}"]
+
+    MilestoneStatus [label="{\<enum\>\lMilestoneStatus|Pending\lSubmitted\lApproved\lRejected\l}"]
+
+    // Relationships
+    AegisCrowdfundFactory -> AegisProject [label="deploys & tracks" arrowhead=open style=dashed]
+    AegisProject -> Milestone [label="contains 1..*" arrowhead=diamond]
+    AegisProject -> ProjectState [label="uses" arrowhead=open]
+    Milestone -> MilestoneStatus [label="uses" arrowhead=open]
+}

@@ -1,0 +1,75 @@
+\contentsline {section}{\numberline {1}BAB 1. PENDAHULUAN}{5}{section.1}%
+\contentsline {subsection}{\numberline {1.1}Latar Belakang}{5}{subsection.1.1}%
+\contentsline {subsection}{\numberline {1.2}Identifikasi Masalah}{5}{subsection.1.2}%
+\contentsline {subsection}{\numberline {1.3}Rumusan Masalah}{5}{subsection.1.3}%
+\contentsline {subsection}{\numberline {1.4}Tujuan Project}{5}{subsection.1.4}%
+\contentsline {subsection}{\numberline {1.5}Manfaat Project}{5}{subsection.1.5}%
+\contentsline {subsection}{\numberline {1.6}Ruang Lingkup}{5}{subsection.1.6}%
+\contentsline {subsection}{\numberline {1.7}Metodologi Pengembangan}{5}{subsection.1.7}%
+\contentsline {subsection}{\numberline {1.8}Sistematika Penulisan}{5}{subsection.1.8}%
+\contentsline {section}{\numberline {2}BAB 2. TINJAUAN PUSTAKA}{5}{section.2}%
+\contentsline {subsection}{\numberline {2.1}Definisi Blockchain}{5}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}Smart Contract}{6}{subsection.2.2}%
+\contentsline {subsection}{\numberline {2.3}Cryptocurrency dan Token}{6}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.4}Platform Blockchain yang Digunakan}{6}{subsection.2.4}%
+\contentsline {subsection}{\numberline {2.5}Penelitian Terkait}{6}{subsection.2.5}%
+\contentsline {subsubsection}{\numberline {2.5.1}Juicebox Protocol (Industri)}{6}{subsubsection.2.5.1}%
+\contentsline {subsubsection}{\numberline {2.5.2}Publikasi Akademik: Hybrid Blockchain--AI Crowdfunding}{6}{subsubsection.2.5.2}%
+\contentsline {subsection}{\numberline {2.6}Konsep Teknologi Pendukung}{6}{subsection.2.6}%
+\contentsline {section}{\numberline {3}BAB 3. ANALISIS MASALAH DAN KEBUTUHAN SISTEM}{6}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Analisis Permasalahan}{6}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Stakeholder Sistem}{7}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}Analisis Proses Bisnis Saat Ini}{7}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}Analisis Solusi Blockchain}{7}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}Analisis Perbandingan Solusi}{7}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.6}Kebutuhan Fungsional}{7}{subsection.3.6}%
+\contentsline {subsection}{\numberline {3.7}Kebutuhan Non-Fungsional}{7}{subsection.3.7}%
+\contentsline {section}{\numberline {4}BAB 4. DESAIN SOLUSI BLOCKCHAIN}{7}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Overview Solusi}{7}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Arsitektur Sistem}{7}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Desain Jaringan Blockchain}{8}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Alur Sistem End-to-End}{8}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Desain Smart Contract}{8}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}State Project dan Transisi}{8}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}Use Case Diagram}{9}{subsection.4.7}%
+\contentsline {subsection}{\numberline {4.8}Activity Diagram}{10}{subsection.4.8}%
+\contentsline {subsection}{\numberline {4.9}Sequence Diagram}{11}{subsection.4.9}%
+\contentsline {subsection}{\numberline {4.10}Class Diagram / ERD}{12}{subsection.4.10}%
+\contentsline {subsection}{\numberline {4.11}Desain Database}{13}{subsection.4.11}%
+\contentsline {subsection}{\numberline {4.12}Desain Antarmuka}{14}{subsection.4.12}%
+\contentsline {section}{\numberline {5}BAB 5. MANAJEMEN PROYEK}{15}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Struktur Tim}{15}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Pembagian Tugas}{15}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Jadwal Proyek}{15}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Manajemen Risiko Proyek}{15}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Estimasi Biaya dan Infrastruktur}{16}{subsection.5.5}%
+\contentsline {section}{\numberline {6}BAB 6. IMPLEMENTASI SISTEM}{16}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Lingkungan Pengembangan}{16}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Implementasi Smart Contract}{16}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Ringkasan Fungsi Kontrak}{16}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Implementasi Frontend}{16}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Integrasi Sistem}{17}{subsection.6.5}%
+\contentsline {subsection}{\numberline {6.6}Fitur UI yang Menonjol}{17}{subsection.6.6}%
+\contentsline {subsection}{\numberline {6.7}Pemetaan Fitur ke File Implementasi}{17}{subsection.6.7}%
+\contentsline {subsection}{\numberline {6.8}Implementasi Backend/API}{17}{subsection.6.8}%
+\contentsline {subsection}{\numberline {6.9}Implementasi Wallet dan Web3}{18}{subsection.6.9}%
+\contentsline {subsection}{\numberline {6.10}Deployment Blockchain}{18}{subsection.6.10}%
+\contentsline {section}{\numberline {7}BAB 7. PENGUJIAN DAN EVALUASI}{18}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Skenario Pengujian}{18}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Functional Testing}{18}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Smart Contract Testing}{18}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Performance Testing}{18}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Security Evaluation}{18}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.6}User Acceptance Testing (UAT)}{18}{subsection.7.6}%
+\contentsline {subsection}{\numberline {7.7}Evaluasi Hasil}{18}{subsection.7.7}%
+\contentsline {section}{\numberline {8}BAB 8. HASIL DAN TAMPILAN LUARAN SISTEM}{18}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Tampilan Dashboard}{18}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Tampilan Transaksi Blockchain}{19}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Analisis Kelebihan Sistem}{19}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Analisis Kekurangan Sistem}{19}{subsection.8.4}%
+\contentsline {section}{\numberline {9}BAB 9. KESIMPULAN DAN SARAN}{20}{section.9}%
+\contentsline {subsection}{\numberline {9.1}Kesimpulan}{20}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}Kontribusi Project}{20}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}Saran Pengembangan}{20}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}Fitur Belum Diimplementasikan}{20}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.5}Keterbatasan Saat Ini}{20}{subsection.9.5}%
