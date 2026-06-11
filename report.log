@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.1.7)  11 JUN 2026 11:21
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.1.7)  11 JUN 2026 12:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -570,11 +570,11 @@ Package fancyhdr Warning: \headheight is too small (18.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-35.46652pt}.
 
 [8]
-<use-case.png, id=454, 691.58376pt x 759.83875pt>
-File: use-case.png Graphic file (type png)
-<use use-case.png>
-Package pdftex.def Info: use-case.png  used on input line 188.
-(pdftex.def)             Requested size: 399.2946pt x 438.71257pt.
+<use-case-en.png, id=454, 680.5425pt x 759.83875pt>
+File: use-case-en.png Graphic file (type png)
+<use use-case-en.png>
+Package pdftex.def Info: use-case-en.png  used on input line 188.
+(pdftex.def)             Requested size: 399.2946pt x 445.81981pt.
 
 
 Package fancyhdr Warning: \headheight is too small (18.0pt): 
@@ -585,12 +585,12 @@ Package fancyhdr Warning: \headheight is too small (18.0pt):
 
 [9
 
- <./use-case.png>]
-<activity.png, id=459, 1198.4775pt x 1874.00125pt>
-File: activity.png Graphic file (type png)
-<use activity.png>
-Package pdftex.def Info: activity.png  used on input line 199.
-(pdftex.def)             Requested size: 328.82706pt x 514.16525pt.
+ <./use-case-en.png>]
+<activity-en.png, id=459, 1146.2825pt x 1874.00125pt>
+File: activity-en.png Graphic file (type png)
+<use activity-en.png>
+Package pdftex.def Info: activity-en.png  used on input line 199.
+(pdftex.def)             Requested size: 328.82706pt x 537.58449pt.
 
 
 Package fancyhdr Warning: \headheight is too small (18.0pt): 
@@ -602,12 +602,12 @@ Package fancyhdr Warning: \headheight is too small (18.0pt):
 [10
 
 
- <./activity.png>]
-<sequence.png, id=464, 1043.9pt x 588.1975pt>
-File: sequence.png Graphic file (type png)
-<use sequence.png>
-Package pdftex.def Info: sequence.png  used on input line 210.
-(pdftex.def)             Requested size: 469.75499pt x 264.68643pt.
+ <./activity-en.png>]
+<sequence-en.png, id=464, 1058.95625pt x 588.1975pt>
+File: sequence-en.png Graphic file (type png)
+<use sequence-en.png>
+Package pdftex.def Info: sequence-en.png  used on input line 210.
+(pdftex.def)             Requested size: 469.75499pt x 260.92583pt.
 
 
 Package fancyhdr Warning: \headheight is too small (18.0pt): 
@@ -619,11 +619,11 @@ Package fancyhdr Warning: \headheight is too small (18.0pt):
 [11
 
 
- <./sequence.png>]
-<erd.png, id=470, 408.52625pt x 1054.94125pt>
-File: erd.png Graphic file (type png)
-<use erd.png>
-Package pdftex.def Info: erd.png  used on input line 221.
+ <./sequence-en.png>]
+<erd-en.png, id=470, 408.52625pt x 1054.94125pt>
+File: erd-en.png Graphic file (type png)
+<use erd-en.png>
+Package pdftex.def Info: erd-en.png  used on input line 221.
 (pdftex.def)             Requested size: 187.89912pt x 485.21448pt.
 
 
@@ -636,7 +636,7 @@ Package fancyhdr Warning: \headheight is too small (18.0pt):
 [12
 
 
- <./erd.png>]
+ <./erd-en.png>]
 
 Package fancyhdr Warning: \headheight is too small (18.0pt): 
 (fancyhdr)                Make it at least 53.46652pt, for example:
@@ -802,7 +802,7 @@ Package rerunfilecheck Info: File `report.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  10656 strings out of 467538
- 165955 string characters out of 5423726
+ 166039 string characters out of 5423726
  586064 words of memory out of 5000000
  39277 multiletter control sequences out of 15000+600000
  680589 words of font info for 67 fonts, out of 8000000 for 9000
@@ -814,7 +814,7 @@ type1/public/lm/lmcsc10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/l
 mr10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texliv
 e/2025/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/texlive/2025/texmf-dist/
 fonts/type1/public/lm/lmtt10.pfb>
-Output written on report.pdf (21 pages, 2722036 bytes).
+Output written on report.pdf (21 pages, 2719030 bytes).
 PDF statistics:
  629 PDF objects out of 1000 (max. 8388607)
  571 compressed objects within 6 object streams
