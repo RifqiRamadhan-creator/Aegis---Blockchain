@@ -8,29 +8,24 @@
 \usepackage{url}
 \usepackage{amsmath}
 
+\hyphenation{report historical laporan historis}
+
 \title{Aegis: Crowdfunding Berbasis Milestone di Ethereum dengan Voting Berbobot Kontribusi}
 
-\author{\IEEEauthorblockN{Rifqi Ramadhan}
-\IEEEauthorblockA{Departemen Teknik Elektro, Universitas Indonesia\\
-Email: \texttt{rifqi.ramadhan22@ui.ac.id}}
-\and
-\IEEEauthorblockN{George Wiliam Thomas Gonata}
-\IEEEauthorblockA{Departemen Teknik Elektro, Universitas Indonesia\\
-Email: \texttt{george.willianm@ui.ac.id}}
-\and
-\IEEEauthorblockN{Samuel Tanaka Sibarani}
-\IEEEauthorblockA{Departemen Teknik Elektro, Universitas Indonesia\\
-Email: \texttt{samuel.tanaka@ui.ac.id}}}
+\author{\IEEEauthorblockN{Rifqi Ramadhan, George Wiliam Thomas Gonata, Samuel Tanaka Sibarani, dan Riri Fitri Sari}
+\IEEEauthorblockA{Departemen Teknik Elektro, Fakultas Teknik, Universitas Indonesia\\
+Email: {\tiny \texttt{rifqi.ramadhan22@ui.ac.id}, \texttt{george.william@ui.ac.id},}\\
+{\tiny \texttt{samuel.tanaka@ui.ac.id}, \texttt{riri@ui.ac.id}}}}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-Aegis is a decentralized crowdfunding prototype built on Ethereum that introduces post-campaign accountability through contribution-weighted voting on project milestones. Unlike traditional centralized crowdfunding platforms that release funds in bulk immediately after a campaign ends, Aegis locks the raised capital in a project-specific smart contract escrow. The funds are then conditionally released to the creator in tranches, each corresponding to a specific project milestone. Creators must submit detailed progress reports (stored as metadata), which backers review and vote upon. Backers' voting weights are proportional to their financial exposure (ETH contribution). If a milestone report is approved by a majority, the allocated tranche is released; if rejected, or if the project is cancelled, backers can claim proportional refunds from the remaining contract balance. We implement the core contracts (Factory and Project) and a React-based frontend application integrated with MetaMask. We evaluate the platform's correctness, state transitions, and refund processes on a local Hardhat network, and compare it with the industry-standard Juicebox Protocol and academic hybrid blockchain-AI architectures.
+Aegis, a blockchain-enabled decentralized crowdfunding concept to be built on the work of Ethereum, introduced post-campaign accountability through contribution-weighted voting on project milestones. Unlike traditional centralized crowdfunding platforms that release funds in bulk immediately after a campaign ends, Aegis locks the raised capital in a project-specific smart contract escrow. The funds are then conditionally released to the creator in tranches, each corresponding to a specific project milestone. Creators must submit detailed progress reports (stored as metadata), which backers review and vote upon. Backers' voting weights are proportional to their financial exposure (ETH contribution). If a milestone report is approved by a majority, the allocated tranche is released; if rejected, or if the project is cancelled, backers can claim proportional refunds from the remaining contract balance. We implement the core contracts (Factory and Project) and a React-based frontend application integrated with MetaMask. The results show that the platform successfully maintains correctness in state transitions and refund processes on a local Hardhat network, as verified through comparison with the industry-standard Juicebox Protocol and academic hybrid blockchain-AI architectures.
 \end{abstract}
 \renewcommand{\abstractname}{Abstrak}
 \begin{abstract}
-Aegis adalah prototipe crowdfunding terdesentralisasi yang dibangun di atas Ethereum yang memperkenalkan akuntabilitas pasca-kampanye melalui voting berbobot kontribusi pada milestone proyek. Berbeda dengan platform crowdfunding terpusat tradisional yang mencairkan dana secara penuh segera setelah kampanye berakhir, Aegis mengunci modal yang terkumpul dalam escrow smart contract khusus proyek. Dana tersebut kemudian dicairkan secara bersyarat kepada kreator dalam bentuk tranche, yang masing-masing sesuai dengan milestone proyek tertentu. Kreator harus mengirimkan laporan kemajuan terperinci (disimpan sebagai metadata), yang ditinjau dan divalidasi oleh para backer. Bobot voting backer sebanding dengan eksposur finansial mereka (kontribusi ETH). Jika laporan milestone disetujui oleh mayoritas, tranche yang dialokasikan akan dicairkan; jika ditolak, atau jika proyek dibatalkan, backer dapat mengklaim pengembalian dana (refund) proporsional dari sisa saldo kontrak. Kami mengimplementasikan contract inti (Factory dan Project) dan aplikasi frontend berbasis React yang terhubung melalui MetaMask. Kami mengevaluasi kebenaran platform, transisi status, dan proses refund pada jaringan Hardhat lokal, serta membandingkannya dengan Juicebox Protocol standar industri dan arsitektur crowdfunding hybrid blockchain-AI akademis.
+Aegis, sebuah konsep crowdfunding terdesentralisasi berbasis blockchain yang dibangun di atas karya Ethereum, memperkenalkan akuntabilitas pasca-kampanye melalui voting berbobot kontribusi pada milestone proyek. Berbeda dengan platform crowdfunding terpusat tradisional yang mencairkan dana secara penuh segera setelah kampanye berakhir, Aegis mengunci modal yang terkumpul dalam escrow smart contract khusus proyek. Dana tersebut kemudian dicairkan secara bersyarat kepada kreator dalam bentuk tranche, yang masing-masing sesuai dengan milestone proyek tertentu. Kreator harus mengirimkan laporan kemajuan terperinci (disimpan sebagai metadata), yang ditinjau dan divalidasi oleh para backer. Bobot voting backer sebanding dengan eksposur finansial mereka (kontribusi ETH). Jika laporan milestone disetujui oleh mayoritas, tranche yang dialokasikan akan dicairkan; jika ditolak, atau jika proyek dibatalkan, backer dapat mengklaim pengembalian dana (refund) proporsional dari sisa saldo kontrak. Kami mengimplementasikan contract inti (Factory dan Project) dan aplikasi frontend berbasis React yang terhubung melalui MetaMask. Hasil evaluasi menunjukkan bahwa platform ini berhasil mempertahankan kebenaran dalam transisi status dan proses refund pada jaringan Hardhat lokal, seperti yang diverifikasi melalui perbandingan dengan Juicebox Protocol standar industri dan arsitektur crowdfunding hybrid blockchain-AI akademis.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -49,12 +44,12 @@ Untuk mengatasi tantangan ini, diperlukan pendekatan terdesentralisasi menggunak
 	\item \textbf{Immutability dan Auditability}: Setiap kontribusi, pengiriman laporan milestone, dan suara voting dicatat secara permanen on-chain, menyediakan riwayat transaksi transparan yang mencegah manipulasi historis.
 	\item \textbf{Automated Rule Execution}: Aturan yang mengatur pelepasan dana, periode voting, dan pengembalian dana dieksekusi secara deterministik dan terprogram, menghilangkan bias manusia atau intervensi platform terpusat.
 \end{itemize}
-Meskipun demikian, sekadar memindahkan model crowdfunding tradisional ke blockchain tidak menyelesaikan masalah agensi pasca-kampanye. Kreator masih dapat menarik semua dana dan mengabaikan proyek. Oleh karena itu, blockchain adalah fondasi yang diperlukan (*necessary*) tetapi belum cukup (*not sufficient*); ia harus dipadukan dengan mekanisme penegakan milestone on-chain.
+Meskipun demikian, sekadar memindahkan model crowdfunding tradisional ke blockchain tidak menyelesaikan masalah agensi pasca-kampanye. Kreator masih dapat menarik semua dana dan mengabaikan proyek. Oleh karena itu, teknologi blockchain merupakan fondasi yang diperlukan (*necessary*) tetapi belum cukup (*not sufficient*); ia harus dipadukan dengan mekanisme penegakan berbasis milestone.
 
 \subsection{Inovasi Aegis}
-Paper ini menyajikan Aegis, sebuah prototipe platform crowdfunding terdesentralisasi yang dirancang untuk menjembatani celah kepercayaan pasca-kampanye. Inovasi utama Aegis terletak pada integrasi escrow terikat milestone dengan model voting berbobot kontribusi.
+Paper ini menyajikan Aegis, sebuah konsep platform crowdfunding terdesentralisasi yang dirancang untuk menjembatani celah kepercayaan pasca-kampanye. Inovasi utama Aegis terletak pada integrasi escrow terikat milestone dengan model voting berbobot kontribusi.
 
-Sebelum memulai kampanye, kreator proyek harus menentukan serangkaian milestone terstruktur dengan tranche pendanaan terkait. Ether (ETH) yang terkumpul dikunci dengan aman di smart contract proyek. Untuk membuka setiap tranche, kreator wajib mengirimkan laporan kemajuan yang berisi bukti kerja. Backer kemudian memberikan suara untuk menyetujui atau menolak laporan tersebut, dengan bobot suara ditentukan oleh jumlah kontribusi masing-masing. Hal ini menyelaraskan hak suara langsung dengan risiko finansial backer, memitigasi serangan Sybil, dan memastikan otoritas pengambilan keputusan sebanding dengan eksposur modal.
+Sebelum memulai kampanye, kreator proyek harus menentukan serangkaian milestone terstruktur dengan tranche pendanaan terkait. Dana kontribusi dalam bentuk Ether (ETH) dikunci dengan aman di smart contract proyek. Untuk membuka setiap tranche, kreator wajib mengirimkan laporan kemajuan yang berisi bukti kerja. Backer kemudian memberikan suara untuk menyetujui atau menolak laporan tersebut, dengan bobot suara ditentukan oleh jumlah kontribusi masing-masing. Hal ini menyelaraskan hak suara langsung dengan risiko finansial backer, memitigasi serangan Sybil, dan memastikan otoritas pengambilan keputusan sebanding dengan eksposur modal.
 
 Kontribusi utama dari paper ini diringkas sebagai berikut:
 \begin{itemize}
@@ -64,12 +59,12 @@ Kontribusi utama dari paper ini diringkas sebagai berikut:
 	\item Analisis komparatif Aegis terhadap Juicebox Protocol komersial dan arsitektur hybrid blockchain-AI akademis.
 \end{itemize}
 
-Sisa dari paper ini disusun sebagai berikut: Section II meninjau penelitian terkait. Section III menjelaskan metodologi voting berbobot kontribusi yang diusulkan. Section IV merinci desain dan arsitektur sistem. Section V menyajikan detail implementasi sistem. Section VI mengevaluasi prototipe melalui skenario pengujian dan membahas batasan sistem. Akhirnya, Section VII menyimpulkan paper ini dan menguraikan penelitian masa depan.
+Sisa dari paper ini disusun sebagai berikut: Section II meninjau penelitian terkait. Section III menjelaskan metodologi voting berbobot kontribusi yang diusulkan. Section IV merinci desain dan arsitektur sistem. Section V menyajikan detail implementasi sistem. Section VI mengevaluasi konsep platform melalui skenario pengujian dan membahas batasan sistem. Akhirnya, Section VII menyimpulkan paper ini dan menguraikan penelitian masa depan.
 
 \section{Tinjauan Pustaka}
 
 \subsection{Juicebox Protocol (Industri Komersial)}
-Juicebox Protocol adalah platform manajemen kas terdesentralisasi dan crowdfunding yang banyak digunakan di jaringan Ethereum \cite{juicebox}. Platform ini memungkinkan komunitas untuk mengonfigurasi siklus pendanaan, menerbitkan token, dan mengelola penebusan kas. Juicebox sangat fleksibel dan terukur untuk organisasi otonom terdesentralisasi (DAO). Namun, fokus utamanya adalah pada pendanaan berkelanjutan dan tokenomika, bukan pada penegakan milestone terstruktur. Di Juicebox, pelepasan dana umumnya diatur oleh konfigurasi siklus tetap atau alokasi multisig terbuka. Tidak ada mekanisme bawaan langsung yang mengikat tranche dana dengan laporan milestone yang ditinjau backer, sehingga membatasi penerapannya untuk proyek yang membutuhkan akuntabilitas bertahap yang ketat.
+The Juicebox Protocol is a widely used decentralized treasury management and crowdfunding platform on Ethereum \cite{juicebox}. It allows communities to configure funding cycles, issue tokens, and manage treasury redemptions. Juicebox sangat fleksibel dan terukur (scalable) untuk crowdfunding dan blockchain DAO karena mengotomatiskan penerbitan token, pembayaran kas, dan alokasi multi-tujuan dalam siklus pendanaan yang dapat dikonfigurasi, sehingga mengurangi overhead operasional. Namun, fokus utamanya adalah pada pendanaan berkelanjutan dan tokenomika, bukan pada penegakan milestone terstruktur. Di Juicebox, pelepasan dana umumnya diatur oleh konfigurasi siklus tetap atau alokasi multisig terbuka. Tidak ada mekanisme bawaan langsung yang mengikat tranche dana dengan laporan milestone yang ditinjau backer, sehingga membatasi penerapannya untuk proyek yang membutuhkan akuntabilitas bertahap yang ketat.
 
 \subsection{Sistem Crowdfunding Blockchain Akademis}
 Dalam literatur akademis, beberapa peneliti telah mengusulkan penggunaan smart contract berbasis Ethereum untuk meningkatkan kepercayaan dan memitigasi fraud dalam crowdfunding. Rathore dan Rizvi \cite{rathore2023decentralized} mengeksplorasi platform crowdfunding terdesentralisasi dasar pada blockchain, menyoroti keuntungan smart contract dalam menghapus perantara terpusat dan mengurangi biaya transaksi. Serupa dengan itu, Jayapal, Xavier, and Arunachalam \cite{jayapal2023capitalizing} memeriksa efisiensi smart contract Ethereum dalam mengotomatisasi alur kerja kampanye, memastikan kreator menerima dana hanya jika target terpenuhi, sehingga mengurangi risiko finansial bagi backer.
@@ -85,7 +80,7 @@ Pembayaran milestone berkala secara formal dimodelkan oleh Alruwaili dan Kruger 
 
 Untuk memvalidasi keamanan alur kerja yang kompleks ini, Villanueva, Srinivasan, dan Rehman \cite{villanueva2025metamorphic} mengusulkan teknik pengujian metamorfik untuk mendeteksi potensi kerentanan logis dalam kontrak crowdfunding berbasis Ethereum. Chen dkk. \cite{chen2023dcc} membahas model tata kelola bersama terdesentralisasi untuk meningkatkan keberlanjutan proyek jangka panjang, menekankan pentingnya pengawasan kolaboratif.
 
-Tabel~\ref{tab:comparison} menyoroti perbedaan utama antara Aegis dan solusi terkait lainnya, menunjukkan bahwa Aegis menempati posisi unik dengan menyediakan DApp praktis yang end-to-end dengan voting milestone berbobot kontribusi yang kuat.
+Tabel~\ref{tab:comparison} menyoroti perbedaan utama antara Aegis dan solusi terkait lainnya, menunjukkan bahwa Aegis menempati posisi unik dengan menyediakan DApp praktis yang end-to-end dengan voting milestone berbobot kontribusi yang kuat, yang dapat diperluas ke kasus penggunaan lain seperti distribusi hibah terdesentralisasi (decentralized grants), pendanaan barang publik (public goods funding), dan verifikasi kesepakatan tingkat layanan (SLA).
 
 \begin{table}[t]
 \centering
@@ -143,6 +138,7 @@ Pilihan model voting berbobot kontribusi mengatasi beberapa tantangan penting da
 \subsection{Mekanisme Pengembalian Dana (Refund)}
 Jika proyek dibatalkan oleh kreator, atau jika milestone ditolak oleh backer, proyek beralih ke status \textit{Cancelled}. Backer berhak mengklaim pengembalian dana yang proporsional dengan kontribusi mereka dari sisa saldo kontrak $R$. Jumlah refund $R_i$ untuk backer $i$ dihitung sebagai:
 \begin{equation}
+\label{eq:refund}
 R_i = c_i \times \frac{R}{C_{\text{total}} - C_{\text{released}}}
 \end{equation}
 di mana $C_{\text{released}}$ is jumlah total dana yang telah dicairkan kepada kreator untuk milestone yang disetujui. Rumus ini memastikan bahwa sisa dana escrow yang belum dicairkan dikembalikan kepada backer secara adil, dengan memperhitungkan tranche yang sudah disalurkan untuk pekerjaan yang berhasil diselesaikan.
@@ -166,7 +162,7 @@ Topologi mengikuti pola factory-project:
 \end{enumerate}
 
 \subsection{Entitas Data dan Mapping}
-To enforce governance rules efficiently, the `AegisProject` smart contract maintains three primary data mapping structures in state storage:
+To enforce governance rules efficiently, the \texttt{AegisProject} smart contract maintains three primary data mapping structures in state storage:
 \begin{itemize}
 	\item \texttt{contributions (address => uint256)}: Memetakan alamat setiap backer ke jumlah ETH yang mereka kontribusikan. Ini berfungsi sebagai sumber kebenaran untuk pembayaran pengembalian dana dan bobot voting.
 	\item \texttt{hasVoted (address => mapping(uint256 => bool))}: Pemetaan bersarang yang melacak apakah backer tertentu telah memberikan suara pada ID milestone tertentu, mencegah voting ganda.
@@ -195,6 +191,7 @@ Kontrak `AegisProject` mengimplementasikan state machine yang ketat untuk menceg
 \end{itemize}
 
 \section{Implementasi}
+Bagian ini menjelaskan implementasi praktis dari platform Aegis. Basis kode diorganisasikan ke dalam dua lapisan utama: smart contract yang mewakili logika blockchain backend, dan aplikasi frontend terdesentralisasi berbasis React. Proses integrasi komponen-komponen ini bergantung pada penyedia Web3 untuk membangun saluran komunikasi bersama, yang dirinci di bawah ini.
 
 \subsection{Smart Contract Solidity}
 Smart contract dikembangkan menggunakan Solidity (v0.8.28) dalam lingkungan Hardhat. Arsitektur dibagi menjadi dua kontrak utama: `AegisCrowdfundFactory.sol` dan `AegisProject.sol`.
@@ -253,7 +250,7 @@ Aegis menggabungkan praktik terbaik keamanan smart contract:
 \end{itemize}
 
 \subsection{DApp Frontend}
-Antarmuka frontend diimplementasikan sebagai aplikasi React halaman tunggal menggunakan Vite untuk optimalisasi build. Komunikasi dengan jaringan Ethereum dibangun menggunakan Ethers.js (v6.16) dan MetaMask sebagai penyedia dompet EOA.
+Antarmuka frontend diimplementasikan sebagai aplikasi React \cite{react} halaman tunggal menggunakan Vite \cite{vite} untuk optimalisasi build. Komunikasi dengan jaringan Ethereum dibangun menggunakan Ethers.js \cite{ethersjs} (v6.16) dan MetaMask \cite{metamask} sebagai penyedia dompet EOA.
 
 Komponen kustom, `ProofBuilder`, dirancang agar kreator dapat menyematkan beberapa bukti kaya (seperti URL, gambar, atau video) saat mengirimkan laporan milestone. Komponen ini mengubah input tersebut menjadi struktur payload JSON:
 \begin{verbatim}
@@ -268,7 +265,7 @@ String JSON ini dikirim langsung ke variabel status `reportURI`. Pada halaman de
 \section{Pengujian \& Evaluasi}
 
 \subsection{Lingkungan Pengujian}
-Kami mengevaluasi platform Aegis pada node pengembang lokal Hardhat. Konfigurasi meliputi:
+Kami mengevaluasi konsep Aegis yang diusulkan pada node pengembang lokal Hardhat. Konfigurasi meliputi:
 \begin{itemize}
 	\item \textbf{Smart Contract}: Dideploy menggunakan skrip Hardhat Ignition.
 	\item \textbf{Jaringan}: Jaringan lokal Hardhat (JSON-RPC localhost:8545).
@@ -280,17 +277,17 @@ Kami mengevaluasi platform Aegis pada node pengembang lokal Hardhat. Konfigurasi
 Kami mengeksekusi beberapa skenario pengujian untuk mengevaluasi kebenaran logika:
 \begin{enumerate}
 	\item \textbf{Alur Milestone Sukses}: Proyek dibuat dengan 3 milestone (2 ETH, 3 ETH, dan 5 ETH). Tiga backer berkontribusi dengan total 10 ETH. Kreator mengirimkan laporan untuk setiap milestone. Backer menyetujui setiap laporan. Kontrak berhasil mencairkan tranche secara berurutan dan beralih ke status \textit{Completed}.
-	\item \textbf{Penolakan Milestone \& Refund}: Kreator mengirimkan laporan milestone. Backer yang mewakili 60\% dari total kontribusi memilih "Tolak". Status milestone beralih ke `Rejected`. Kreator membatalkan proyek. Backer berhasil mengklaim refund proporsional mereka, memverifikasi bahwa model matematika pada Persamaan (7) berhasil membagi sisa saldo escrow dengan benar.
+	\item \textbf{Penolakan Milestone \& Refund}: Kreator mengirimkan laporan milestone. Backer yang mewakili 60\% dari total kontribusi memilih "Tolak". Status milestone beralih ke `Rejected`. Kreator membatalkan proyek. Backer berhasil mengklaim refund proporsional mereka, memverifikasi bahwa model matematika pada Persamaan~\eqref{eq:refund} berhasil membagi sisa saldo escrow dengan benar.
 	\item \textbf{Kegagalan Pendanaan}: Proyek gagal mencapai target pendanaannya sebelum deadline. Status proyek secara otomatis diperbarui menjadi `Cancelled`, dan backer berhasil menarik kembali 100\% dari kontribusi awal mereka.
 \end{enumerate}
 
 \subsection{Diskusi \& Batasan}
 Evaluasi mengonfirmasi bahwa Aegis berfungsi dengan benar dan memberikan tingkat akuntabilitas yang tinggi. Voting berbobot kontribusi berhasil menyelaraskan kekuatan keputusan dengan risiko finansial.
 
-Namun, prototipe ini memiliki beberapa batasan:
+Namun, konsep platform ini memiliki beberapa batasan:
 \begin{itemize}
 	\item \textbf{Efisiensi Gas}: Menyimpan string JSON on-chain, meskipun lebih murah daripada menyimpan berkas mentah, tetap memakan biaya gas yang cukup besar. Sistem siap produksi di masa depan harus bermigrasi ke IPFS (InterPlanetary File System), dengan hanya menyimpan hash CID (Content Identifier) IPFS on-chain.
-	\item \textbf{Plutokrasi Voting}: Voting berbobot kontribusi dapat menyebabkan struktur tata kelola yang plutokratis, di mana satu backer besar (*whale*) dapat mengesampingkan suara dari semua kontributor kecil lainnya. Memitigasi hal ini memerlukan eksplorasi voting kuadrat (*quadratic voting*) atau token tata kelola yang didelegasikan.
+	\item \textbf{Plutokrasi Voting}: Voting berbobot kontribusi dapat menyebabkan struktur tata kelola yang plutokratis, di mana satu kontributor bermodal besar dapat mengesampingkan suara dari semua kontributor kecil lainnya. Mitigating ini memerlukan eksplorasi voting kuadrat (*quadratic voting*) atau token tata kelola yang didelegasikan.
 	\item \textbf{Volatilitas ETH}: Menggunakan native ETH untuk escrow mengekspos kreator dan backer pada volatilitas harga selama kampanye berlangsung. Integrasi stablecoin ERC-20 (seperti USDT atau USDC) sangat diperlukan untuk proyek jangka panjang.
 \end{itemize}
 
@@ -300,8 +297,8 @@ Aegis berhasil menunjukkan bahwa crowdfunding berbasis milestone dengan voting b
 Penelitian masa depan akan difokuskan pada:
 \begin{enumerate}
 	\item Mengintegrasikan IPFS untuk penyimpanan laporan milestone yang terdesentralisasi dan efisien gas.
-	\item Menerapkan voting kuadrat (*quadratic voting*) atau token tata kelola hibrida untuk mengurangi dominasi plutokrasi.
-	\item Mendukung escrow berbasis stablecoin dan mengintegrasikan kolam hasil keuangan terdesentralisasi (DeFi yield pools) agar dana escrow yang menganggur tetap produktif.
+	\item Menerapkan voting kuadrat (quadratic voting, yaitu metode voting di mana biaya untuk hak suara tambahan meningkat secara kuadrat guna mencegah dominasi kontributor besar) atau token tata kelola hibrida untuk mengurangi bias plutokrasi.
+	\item Mendukung escrow berbasis stablecoin (seperti USDC atau USDT) dan mengintegrasikan kolam hasil keuangan terdesentralisasi (DeFi yield-bearing pools, seperti lending pools Aave atau Compound) agar dana escrow tetap produktif.
 \end{enumerate}
 
 \section*{Appendix}
@@ -362,6 +359,9 @@ OpenZeppelin, ``OpenZeppelin Smart Contract Library,'' 2026. [Online]. Available
 
 \bibitem{ethersjs}
 R. Moore, ``Ethers.js Documentation,'' 2026. [Online]. Available: \url{https://docs.ethers.org/} Diakses: Jun. 2026.
+
+\bibitem{vite}
+Vite Team, ``Vite Frontend Tooling,'' 2026. [Online]. Available: \url{https://vite.dev/} Diakses: Jun. 2026.
 
 \bibitem{react}
 Meta, ``React Documentation,'' 2026. [Online]. Available: \url{https://react.dev/} Diakses: Jun. 2026.

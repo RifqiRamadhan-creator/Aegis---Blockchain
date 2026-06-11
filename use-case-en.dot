@@ -1,0 +1,57 @@
+digraph UseCaseDiagram {
+    fontname="Helvetica,Arial,sans-serif"
+    node [fontname="Helvetica,Arial,sans-serif" fontsize=10]
+    edge [fontname="Helvetica,Arial,sans-serif" fontsize=10]
+    rankdir=LR;
+    
+    // Actors
+    subgraph cluster_actors {
+        label = "Actors";
+        style=dashed;
+        color=gray;
+        
+        Creator [label="Project Creator\n(Creator Account)", shape=box, style=filled, color=lightblue];
+        Backer [label="Backer\n(Backer Account)", shape=box, style=filled, color=lightyellow];
+        MetaMask [label="MetaMask Wallet\n(Web3 Provider)", shape=box, style=filled, color=orange];
+    }
+    
+    // System Boundary
+    subgraph cluster_system {
+        label = "Aegis Platform (Smart Contracts & DApp)";
+        style=filled;
+        color=lightgray;
+        
+        UC1 [label="Create Project & Milestones\n(AegisCrowdfundFactory)", shape=ellipse, style=filled, color=white];
+        UC2 [label="Fund Project (Contribute ETH)\n(AegisProject)", shape=ellipse, style=filled, color=white];
+        UC3 [label="Submit Milestone Report\n(AegisProject)", shape=ellipse, style=filled, color=white];
+        UC4 [label="Vote on Milestone\n(AegisProject)", shape=ellipse, style=filled, color=white];
+        UC5 [label="Release Milestone Funds\n(Finalize Milestone)", shape=ellipse, style=filled, color=white];
+        UC6 [label="Claim Proportional Refund\n(Claim Refund)", shape=ellipse, style=filled, color=white];
+        UC7 [label="Cancel Project\n(Creator/Backer)", shape=ellipse, style=filled, color=white];
+        UC8 [label="Connect Wallet\n(MetaMask Login)", shape=ellipse, style=filled, color=white];
+    }
+    
+    // Actor to Use Case relations
+    Creator -> UC8;
+    Backer -> UC8;
+    
+    Creator -> UC1;
+    Creator -> UC3;
+    Creator -> UC5;
+    Creator -> UC7;
+    
+    Backer -> UC2;
+    Backer -> UC4;
+    Backer -> UC6;
+    Backer -> UC7 [label="if milestone is rejected"];
+    
+    // MetaMask relations for transactions
+    UC1 -> MetaMask [dir=back, style=dotted, label="Sign Tx"];
+    UC2 -> MetaMask [dir=back, style=dotted, label="Sign Tx"];
+    UC3 -> MetaMask [dir=back, style=dotted, label="Sign Tx"];
+    UC4 -> MetaMask [dir=back, style=dotted, label="Sign Tx"];
+    UC5 -> MetaMask [dir=back, style=dotted, label="Sign Tx"];
+    UC6 -> MetaMask [dir=back, style=dotted, label="Sign Tx"];
+    UC7 -> MetaMask [dir=back, style=dotted, label="Sign Tx"];
+    UC8 -> MetaMask [dir=back, style=dotted, label="Verify Account"];
+}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.1.7)  4 JUN 2026 10:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.1.7)  11 JUN 2026 11:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -253,20 +253,20 @@ File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 (./main-en-us.aux)
 \openout1 = `main-en-us.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 25.
-LaTeX Font Info:    ... okay on input line 25.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 20.
+LaTeX Font Info:    ... okay on input line 20.
 
 -- Lines per column: 56 (exact).
 (c:/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
@@ -325,106 +325,117 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 26
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 21
 .
 
 (c:/texlive/2025/texmf-dist/tex/latex/psnfss/t1pcr.fd
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-) [1{c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2
-025/texmf-dist/fonts/enc/dvips/base/8r.enc}
+)
+Underfull \hbox (badness 1412) in paragraph at lines 40--41
+[]\T1/ptm/b/n/10 Immutability and Au-ditabil-ity\T1/ptm/m/n/10 : Ev-ery con-tri
+-bu-tion,
+ []
+
+[1{c:/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/202
+5/texmf-dist/fonts/enc/dvips/base/8r.enc}
 
 
 ]
-Underfull \hbox (badness 2310) in paragraph at lines 105--106
+Underfull \hbox (badness 2310) in paragraph at lines 100--101
 []\T1/ptm/m/n/10 Aegis ad-dresses post-campaign risk through a novel,
  []
 
 [2]
-<../use-case.png, id=18, 691.58376pt x 759.83875pt>
-File: ../use-case.png Graphic file (type png)
-<use ../use-case.png>
-Package pdftex.def Info: ../use-case.png  used on input line 153.
-(pdftex.def)             Requested size: 189.0pt x 207.65195pt.
- [3 <../use-case.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 168--169
+<../use-case-en.png, id=18, 680.5425pt x 759.83875pt>
+File: ../use-case-en.png Graphic file (type png)
+<use ../use-case-en.png>
+Package pdftex.def Info: ../use-case-en.png  used on input line 149.
+(pdftex.def)             Requested size: 189.0pt x 211.01427pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 161--163
+[]\T1/ptm/m/n/10 To en-force gov-er-nance rules ef-fi-ciently, the
+ []
+
+[3 <../use-case-en.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 164--165
 []\T1/pcr/m/n/10 hasVoted (address => mapping(uint256
  []
 
-<../sequence.png, id=26, 1043.9pt x 588.1975pt>
-File: ../sequence.png Graphic file (type png)
-<use ../sequence.png>
-Package pdftex.def Info: ../sequence.png  used on input line 177.
-(pdftex.def)             Requested size: 226.79846pt x 127.78831pt.
+<../sequence-en.png, id=26, 1058.95625pt x 588.1975pt>
+File: ../sequence-en.png Graphic file (type png)
+<use ../sequence-en.png>
+Package pdftex.def Info: ../sequence-en.png  used on input line 173.
+(pdftex.def)             Requested size: 226.79846pt x 125.96635pt.
 
-Overfull \hbox (6.0pt too wide) in paragraph at lines 207--207
+Overfull \hbox (6.0pt too wide) in paragraph at lines 204--204
 []\T1/pcr/m/n/10 AegisProject newProject = new AegisProject([] 
  []
 
 
-Overfull \hbox (12.0pt too wide) in paragraph at lines 230--230
+Overfull \hbox (12.0pt too wide) in paragraph at lines 227--227
 []\T1/pcr/m/n/10 mapping(address => mapping(uint256 => bool))[] 
  []
 
-[4 <../sequence.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 237--238
+[4 <../sequence-en.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 234--235
 []\T1/pcr/m/n/10 submitMilestoneReport(id, reportURI)\T1/ptm/m/n/10 :
  []
 
 
-Overfull \hbox (30.0pt too wide) in paragraph at lines 261--261
+Overfull \hbox (30.0pt too wide) in paragraph at lines 258--258
 []  \T1/pcr/m/n/10 {"type": "url", "value": "https://dev.site"},[] 
  []
 
 
-Overfull \hbox (42.0pt too wide) in paragraph at lines 261--261
+Overfull \hbox (42.0pt too wide) in paragraph at lines 258--258
 []  \T1/pcr/m/n/10 {"type": "image", "value": "https://imgur..."},[] 
  []
 
 
-Overfull \hbox (30.0pt too wide) in paragraph at lines 261--261
+Overfull \hbox (30.0pt too wide) in paragraph at lines 258--258
 []  \T1/pcr/m/n/10 {"type": "text", "value": "Milestone 1 done"}[] 
  []
 
 
-Underfull \hbox (badness 1371) in paragraph at lines 270--271
+Underfull \hbox (badness 1371) in paragraph at lines 267--268
 []\T1/ptm/b/n/10 Network\T1/ptm/m/n/10 : Hard-hat lo-cal net-work (JSON-RPC lo-
 cal-
  []
 
-
-Underfull \hbox (badness 5756) in paragraph at lines 294--295
+[5]
+Underfull \hbox (badness 5756) in paragraph at lines 291--292
 []\T1/ptm/m/n/10 Aegis suc-cess-fully demon-strates that milestone-based
  []
 
-[5]
-Underfull \hbox (badness 4967) in paragraph at lines 304--305
+
+Underfull \hbox (badness 4967) in paragraph at lines 301--302
 []\T1/ptm/m/n/10 Supplementary ma-te-ri-als for this re-search, in-clud-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 304--305
+Underfull \hbox (badness 10000) in paragraph at lines 301--302
 \T1/ptm/m/n/10 the source code repos-i-tory, sys-tem screen-shots
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 304--305
+Underfull \hbox (badness 10000) in paragraph at lines 301--302
 \T1/ptm/m/n/10 (such as in-ter-face mock-ups, user dash-boards, and
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 304--305
+Underfull \hbox (badness 10000) in paragraph at lines 301--302
 \T1/ptm/m/n/10 ap-pendix file: $https : / / github . com / RifqiRamadhan-[]crea
 tor /
  []
 
 
-Underfull \hbox (badness 2189) in paragraph at lines 327--328
+Underfull \hbox (badness 2189) in paragraph at lines 324--325
 \T1/ptm/m/n/8 of Ethereum's Smart Con-tracts,'' \T1/ptm/m/it/8 In-ter-na-tional
  Jour-nal of Safety
  []
 
 
-Underfull \hbox (badness 1953) in paragraph at lines 333--334
+Underfull \hbox (badness 1953) in paragraph at lines 330--331
 []\T1/ptm/m/n/8 N. A. N. Ah-mad and S. A. H. Rah-man, ``Ap-ply-ing Ethereum
  []
 
@@ -446,13 +457,13 @@ L3 programming layer <2025-12-29>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 3984 strings out of 467538
- 65060 string characters out of 5423726
- 484349 words of memory out of 5000000
- 32835 multiletter control sequences out of 15000+600000
- 740812 words of font info for 146 fonts, out of 8000000 for 9000
- 1141 hyphenation exceptions out of 8191
- 59i,9n,67p,1236b,368s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 3991 strings out of 467538
+ 65161 string characters out of 5423726
+ 485302 words of memory out of 5000000
+ 32838 multiletter control sequences out of 15000+600000
+ 742511 words of font info for 149 fonts, out of 8000000 for 9000
+ 1143 hyphenation exceptions out of 8191
+ 59i,9n,67p,1313b,394s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/tex
 live/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2025
 /texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb><c:/texlive/2025/texmf-dis
@@ -464,7 +475,7 @@ fb><c:/texlive/2025/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb><c:/texlive/2
 025/texmf-dist/fonts/type1/urw/times/utmb8a.pfb><c:/texlive/2025/texmf-dist/fon
 ts/type1/urw/times/utmbi8a.pfb><c:/texlive/2025/texmf-dist/fonts/type1/urw/time
 s/utmr8a.pfb><c:/texlive/2025/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main-en-us.pdf (6 pages, 275804 bytes).
+Output written on main-en-us.pdf (6 pages, 275637 bytes).
 PDF statistics:
  93 PDF objects out of 1000 (max. 8388607)
  55 compressed objects within 1 object stream

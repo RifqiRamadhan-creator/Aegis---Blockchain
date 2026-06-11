@@ -1,0 +1,73 @@
+digraph G {
+    rankdir=TB;
+    splines=line;
+    nodesep=0.6;
+    ranksep=0.4;
+
+    // Node style for lifeline points
+    node [shape=point, width=0, height=0];
+    
+    // Lifelines (invisibly connected at the top to headers)
+    c0 -> c1 -> c2 -> c3 -> c4 -> c5 -> c6 -> c7 -> c8 -> c9 -> c10 [style=dashed, arrowhead=none, color="#888888"];
+    b0 -> b1 -> b2 -> b3 -> b4 -> b5 -> b6 -> b7 -> b8 -> b9 -> b10 [style=dashed, arrowhead=none, color="#888888"];
+    f0 -> f1 -> f2 -> f3 -> f4 -> f5 -> f6 -> f7 -> f8 -> f9 -> f10 [style=dashed, arrowhead=none, color="#888888"];
+    w0 -> w1 -> w2 -> w3 -> w4 -> w5 -> w6 -> w7 -> w8 -> w9 -> w10 [style=dashed, arrowhead=none, color="#888888"];
+    s0 -> s1 -> s2 -> s3 -> s4 -> s5 -> s6 -> s7 -> s8 -> s9 -> s10 [style=dashed, arrowhead=none, color="#888888"];
+
+    // Participant Box Styles
+    node [shape=box, style=filled, fontname="Helvetica-Bold", fontsize=11];
+    
+    { rank=same;
+        pCreator [label="Creator" fillcolor="#E8F4F8" color="#005B96"];
+        pBacker [label="Backer" fillcolor="#FFFCE6" color="#D4A373"];
+        pFrontend [label="DApp UI\n(React)" fillcolor="#F0F0F0" color="#7F8C8D"];
+        pWallet [label="MetaMask\n(Wallet)" fillcolor="#FFEBE0" color="#E67E22"];
+        pContract [label="Aegis Contracts\n(Blockchain)" fillcolor="#EAFaf1" color="#2ECC71"];
+    }
+
+    // Connect participant boxes to timeline starts
+    pCreator -> c0 [style=invis];
+    pBacker -> b0 [style=invis];
+    pFrontend -> f0 [style=invis];
+    pWallet -> w0 [style=invis];
+    pContract -> s0 [style=invis];
+
+    // Maintain horizontal ordering of participants
+    pCreator -> pBacker -> pFrontend -> pWallet -> pContract [style=invis];
+
+    // Messages
+    edge [fontname="Helvetica", fontsize=9, color="#2C3E50"];
+
+    // Step 1: Create Project
+    { rank=same; c1; f1; }
+    c1 -> f1 [label="1. Create Project & Milestones" constraint=false];
+
+    { rank=same; f2; w2; }
+    f2 -> w2 [label="2. Request Sign Tx" constraint=false];
+
+    { rank=same; c3; w3; }
+    c3 -> w3 [label="3. Confirm/Approve Tx" constraint=false dir=forward];
+
+    { rank=same; w4; s4; }
+    w4 -> s4 [label="4. Deploy AegisProject" constraint=false];
+
+    { rank=same; f5; s5; }
+    s5 -> f5 [label="5. Emit ProjectCreated event" constraint=false style=dashed];
+
+    // Step 2: Contribute
+    { rank=same; b6; f6; }
+    b6 -> f6 [label="6. Send ETH Contribution" constraint=false];
+
+    { rank=same; f7; w7; }
+    f7 -> w7 [label="7. Request Sign Tx" constraint=false];
+
+    { rank=same; w8; s8; }
+    w8 -> s8 [label="8. Call contribute() (payable)" constraint=false];
+
+    // Step 3: Milestone & Vote
+    { rank=same; c9; s9; }
+    c9 -> s9 [label="9. submitMilestoneReport(id, reportURI)" constraint=false];
+
+    { rank=same; b10; s10; }
+    b10 -> s10 [label="10. voteOnMilestone() & Auto-Finalize/Refund" constraint=false];
+}

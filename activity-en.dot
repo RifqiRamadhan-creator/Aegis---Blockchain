@@ -1,0 +1,87 @@
+digraph ActivityDiagram {
+    fontname="Helvetica,Arial,sans-serif"
+    node [fontname="Helvetica,Arial,sans-serif" fontsize=10]
+    edge [fontname="Helvetica,Arial,sans-serif" fontsize=10]
+    
+    // Start / End
+    Start [shape=circle, label="", style=filled, color=black, width=0.3, height=0.3];
+    EndFundingFailed [shape=doublecircle, label="", style=filled, color=black, width=0.3, height=0.3];
+    EndCompleted [shape=doublecircle, label="", style=filled, color=black, width=0.3, height=0.3];
+    EndCancelled [shape=doublecircle, label="", style=filled, color=black, width=0.3, height=0.3];
+
+    // Actions
+    DeployFactory [shape=box, label="Deploy AegisCrowdfundFactory", style=rounded];
+    CreateProject [shape=box, label="Creator creates Project\n(Set Funding Goal, Deadline, & Milestones)", style=rounded];
+    StateFunding [shape=box, label="Project State: Funding\n(Receiving ETH contributions from Backers)", style=rounded];
+    
+    CheckGoal [shape=diamond, label="Funding Goal\nReached?"];
+    CheckDeadline [shape=diamond, label="Deadline\nPassed?"];
+    
+    RefundFundingFailed [shape=box, label="Backers claim 100% Refund\nvia claimRefund()", style=rounded];
+    
+    StateActive [shape=box, label="Project State: Active\n(Funding Successful)", style=rounded];
+    
+    WorkMilestone [shape=box, label="Creator works on Project\naccording to milestone plan", style=rounded];
+    SubmitReport [shape=box, label="Creator submits Milestone Report\n(submitMilestoneReport) with Proof URL", style=rounded];
+    
+    VotingPeriod [shape=box, label="Milestone Voting by Backers (7 Days)\nVote Weight = Contribution Amount", style=rounded];
+    
+    CheckVoteMajority [shape=diamond, label="Is YES votes > 50%\nor NO votes > 50%?"];
+    CheckFinalize [shape=diamond, label="Voting Deadline Passed?\n(Manual Finalize)"];
+    CheckFinalizeVotes [shape=diamond, label="Is YES > NO?"];
+    
+    ReleaseMilestoneFunds [shape=box, label="Milestone Funds transferred to Creator\n(status = Approved)", style=rounded];
+    MilestoneRejected [shape=box, label="Milestone rejected\n(status = Rejected)", style=rounded];
+    
+    CheckAllMilestones [shape=diamond, label="Are all\nmilestones approved?"];
+    StateCompleted [shape=box, label="Project State: Completed", style=rounded];
+    
+    CheckCancelProject [shape=diamond, label="Creator/Backer cancels\nproject (cancelProject)?"];
+    StateCancelled [shape=box, label="Project State: Cancelled", style=rounded];
+    RefundRemaining [shape=box, label="Backers claim Proportional Refund\n(remaining balance in contract)", style=rounded];
+    
+    // Connections
+    Start -> DeployFactory;
+    DeployFactory -> CreateProject;
+    CreateProject -> StateFunding;
+    
+    StateFunding -> CheckGoal;
+    
+    CheckGoal -> StateActive [label="Yes (Goal Reached)"];
+    CheckGoal -> CheckDeadline [label="No"];
+    
+    CheckDeadline -> StateFunding [label="No (Still Funding)"];
+    CheckDeadline -> StateCancelled [label="Yes (Funding Failed)"];
+    
+    StateActive -> WorkMilestone;
+    WorkMilestone -> SubmitReport;
+    SubmitReport -> VotingPeriod;
+    VotingPeriod -> CheckVoteMajority;
+    
+    // Vote Majority Check (Auto-finalize)
+    CheckVoteMajority -> ReleaseMilestoneFunds [label="YES > 50%"];
+    CheckVoteMajority -> MilestoneRejected [label="NO > 50%"];
+    CheckVoteMajority -> CheckFinalize [label="No Absolute Majority"];
+    
+    // Manual Finalize after 7 days
+    CheckFinalize -> VotingPeriod [label="Not Expired"];
+    CheckFinalize -> CheckFinalizeVotes [label="Expired"];
+    
+    CheckFinalizeVotes -> ReleaseMilestoneFunds [label="YES > NO"];
+    CheckFinalizeVotes -> MilestoneRejected [label="YES <= NO"];
+    
+    // After Release
+    ReleaseMilestoneFunds -> CheckAllMilestones;
+    CheckAllMilestones -> StateCompleted [label="Yes"];
+    CheckAllMilestones -> WorkMilestone [label="No (Next Milestone)"];
+    
+    StateCompleted -> EndCompleted;
+    
+    // After Rejection / Cancel check
+    MilestoneRejected -> CheckCancelProject;
+    CheckCancelProject -> WorkMilestone [label="No (Resubmit / Revise)"];
+    CheckCancelProject -> StateCancelled [label="Yes (Cancelled)"];
+    
+    StateCancelled -> RefundRemaining;
+    RefundRemaining -> EndCancelled;
+}

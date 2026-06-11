@@ -8,25 +8,20 @@
 \usepackage{url}
 \usepackage{amsmath}
 
+\hyphenation{report historical}
+
 \title{Aegis: Milestone-Based Crowdfunding on Ethereum with Contribution-Weighted Voting}
 
-\author{\IEEEauthorblockN{Rifqi Ramadhan}
-\IEEEauthorblockA{Department of Electrical Engineering, Universitas Indonesia\\
-Email: \texttt{rifqi.ramadhan22@ui.ac.id}}
-\and
-\IEEEauthorblockN{George Wiliam Thomas Gonata}
-\IEEEauthorblockA{Department of Electrical Engineering, Universitas Indonesia\\
-Email: \texttt{george.willianm@ui.ac.id}}
-\and
-\IEEEauthorblockN{Samuel Tanaka Sibarani}
-\IEEEauthorblockA{Department of Electrical Engineering, Universitas Indonesia\\
-Email: \texttt{samuel.tanaka@ui.ac.id}}}
+\author{\IEEEauthorblockN{Rifqi Ramadhan, George Wiliam Thomas Gonata, Samuel Tanaka Sibarani, and Riri Fitri Sari}
+\IEEEauthorblockA{Department of Electrical Engineering, Faculty of Engineering, University of Indonesia\\
+Email: {\tiny \texttt{rifqi.ramadhan22@ui.ac.id}, \texttt{george.william@ui.ac.id},}\\
+{\tiny \texttt{samuel.tanaka@ui.ac.id}, \texttt{riri@ui.ac.id}}}}
 
 \begin{document}
 \maketitle
 
 \begin{abstract}
-Aegis is a decentralized crowdfunding prototype built on Ethereum that introduces post-campaign accountability through contribution-weighted voting on project milestones. Unlike traditional centralized crowdfunding platforms that release funds in bulk immediately after a campaign ends, Aegis locks the raised capital in a project-specific smart contract escrow. The funds are then conditionally released to the creator in tranches, each corresponding to a specific project milestone. Creators must submit detailed progress reports (stored as metadata), which backers review and vote upon. Backers' voting weights are proportional to their financial exposure (ETH contribution). If a milestone report is approved by a majority, the allocated tranche is released; if rejected, or if the project is cancelled, backers can claim proportional refunds from the remaining contract balance. We implement the core contracts (Factory and Project) and a React-based frontend application integrated with MetaMask. We evaluate the platform's correctness, state transitions, and refund processes on a local Hardhat network, and compare it with the industry-standard Juicebox Protocol and academic hybrid blockchain-AI architectures.
+Aegis, a blockchain-enabled decentralized crowdfunding concept to be built on the work of Ethereum, introduced post-campaign accountability through contribution-weighted voting on project milestones. Unlike traditional centralized crowdfunding platforms that release funds in bulk immediately after a campaign ends, Aegis locks the raised capital in a project-specific smart contract escrow. The funds are then conditionally released to the creator in tranches, each corresponding to a specific project milestone. Creators must submit detailed progress reports (stored as metadata), which backers review and vote upon. Backers' voting weights are proportional to their financial exposure (ETH contribution). If a milestone report is approved by a majority, the allocated tranche is released; if rejected, or if the project is cancelled, backers can claim proportional refunds from the remaining contract balance. We implement the core contracts (Factory and Project) and a React-based frontend application integrated with MetaMask. The results show that the platform successfully maintains correctness in state transitions and refund processes on a local Hardhat network, as verified through comparison with the industry-standard Juicebox Protocol and academic hybrid blockchain-AI architectures.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -45,12 +40,12 @@ To address these challenges, a decentralized approach using blockchain technolog
 	\item \textbf{Immutability and Auditability}: Every contribution, report submission, and vote is recorded immutability on-chain, providing a transparent ledger that prevents historical tampering.
 	\item \textbf{Automated Rule Execution}: Rules governing fund release, voting periods, and refunds are executed deterministically and programmatically, removing human bias or central platform intervention.
 \end{itemize}
-Nonetheless, simply migrating traditional bulk-release crowdfunding models to the blockchain does not solve the post-campaign principal-agent problem. Creators can still withdraw all funds and abandon the project, leaving backers with no recourse. Hence, blockchain is a necessary but not sufficient foundation; it must be coupled with an on-chain milestone enforcement mechanism.
+Nonetheless, simply migrating traditional bulk-release crowdfunding models to the blockchain does not solve the post-campaign principal-agent problem. Creators can still withdraw all funds and abandon the project, leaving backers with no recourse. Hence, blockchain technology is a necessary but not sufficient foundation; it must be coupled with a milestone-based enforcement mechanism.
 
 \subsection{Innovation of Aegis}
-This paper presents Aegis, a decentralized crowdfunding platform prototype designed to bridge the post-campaign trust gap. The core innovation of Aegis lies in its integration of a milestone-locked escrow contract with a contribution-weighted voting model. 
+This paper presents Aegis, a decentralized crowdfunding platform concept designed to bridge the post-campaign trust gap. The core innovation of Aegis lies in its integration of a milestone-locked escrow contract with a contribution-weighted voting model. 
 
-Before initiating their campaigns, project creators must define a structured set of milestones with associated funding tranches. The raised Ether (ETH) is locked securely in a dedicated smart contract. To unlock each tranche, the creator must submit a progress report containing proof of work. Backers then vote to approve or reject the report, with their voting weights determined by their individual contributions. This aligns voting power directly with backers' financial risk, mitigating the risk of Sybil attacks and ensuring that decision-making authority matches capital exposure.
+Before initiating their campaigns, project creators must define a structured set of milestones with associated funding tranches. The contributed capital, denominated in Ether (ETH), is locked securely in a dedicated smart contract. To unlock each tranche, the creator must submit a progress report containing proof of work. Backers then vote to approve or reject the report, with their voting weights determined by their individual contributions. This aligns voting power directly with backers' financial risk, mitigating the risk of Sybil attacks and ensuring that decision-making authority matches capital exposure.
 
 The key contributions of this paper are summarized as follows:
 \begin{itemize}
@@ -60,12 +55,12 @@ The key contributions of this paper are summarized as follows:
 	\item A comparative analysis of Aegis against both the commercial Juicebox Protocol and research-oriented hybrid blockchain-AI architectures.
 \end{itemize}
 
-The rest of this paper is structured as follows: Section II reviews related work. Section III explains the proposed contribution-weighted voting method. Section IV details the system design and architecture. Section V presents the implementation details. Section VI evaluates the prototype through test scenarios and discusses limitations. Finally, Section VII concludes the paper and outlines future research.
+The rest of this paper is structured as follows: Section II reviews related work. Section III explains the proposed contribution-weighted voting method. Section IV details the system design and architecture. Section V presents the implementation details. Section VI evaluates the platform concept through test scenarios and discusses limitations. Finally, Section VII concludes the paper and outlines future research.
 
 \section{Related Work}
 
 \subsection{Juicebox Protocol (Commercial Industry)}
-The Juicebox Protocol is a widely used decentralized treasury management and crowdfunding platform on Ethereum \cite{juicebox}. It allows communities to configure funding cycles, issue tokens, and manage treasury redemptions. Juicebox is highly flexible and scalable for decentralized autonomous organizations (DAOs). However, it focuses primarily on continuous funding and tokenomics rather than structured milestone enforcement. In Juicebox, fund release is generally governed by fixed cycle configurations or open-ended multisig allocations. There is no built-in, out-of-the-box mechanism that directly ties fund tranches to backer-reviewed milestone reports, which limits its applicability for projects requiring strict, phased accountability.
+The Juicebox Protocol is a widely used decentralized treasury management and crowdfunding platform on Ethereum \cite{juicebox}. It allows communities to configure funding cycles, issue tokens, and manage treasury redemptions. Juicebox is highly flexible and scalable for crowdfunding and blockchain DAOs, as it automates token issuance, treasury payouts, and multi-destination allocations across configurable funding cycles, thereby reducing operational overhead. However, it focuses primarily on continuous funding and tokenomics rather than structured milestone enforcement. In Juicebox, fund release is generally governed by fixed cycle configurations or open-ended multisig allocations. There is no built-in, out-of-the-box mechanism that directly ties fund tranches to backer-reviewed milestone reports, which limits its applicability for projects requiring strict, phased accountability.
 
 \subsection{Academic Blockchain Crowdfunding Systems}
 In academic literature, several researchers have proposed using Ethereum-based smart contracts to improve trust and mitigate fraud in crowdfunding. Rathore and Rizvi \cite{rathore2023decentralized} explored a basic decentralized crowdfunding platform on blockchain, highlighting the advantages of smart contracts in removing centralized intermediaries and reducing transaction fees. Similarly, Jayapal, Xavier, and Arunachalam \cite{jayapal2023capitalizing} examined the efficiency of Ethereum smart contracts in automating campaign workflows, ensuring that creators receive funds only if the target is met, thereby reducing financial risk for backers.
@@ -81,7 +76,7 @@ Periodic milestone payments were formally modeled by Alruwaili and Kruger \cite{
 
 To validate the security of these complex workflows, Villanueva, Srinivasan, and Rehman \cite{villanueva2025metamorphic} proposed metamorphic testing techniques to detect potential logical vulnerabilities in Ethereum-based crowdfunding contracts. Chen et al. \cite{chen2023dcc} discussed decentralized co-governance models to improve long-term project sustainability, emphasizing the importance of collaborative oversight.
 
-Table~\ref{tab:comparison} highlights the key differences between Aegis and these related solutions, showing that Aegis occupies a unique niche by providing a practical, end-to-end DApp with robust, contribution-weighted milestone voting.
+Table~\ref{tab:comparison} highlights the key differences between Aegis and these related solutions, showing that Aegis occupies a unique niche by providing a practical, end-to-end DApp with robust, contribution-weighted milestone voting, which can be extended to other use cases such as decentralized grant distributions, public goods funding, and service-level agreement (SLA) verifications.
 
 \begin{table}[t]
 \centering
@@ -132,13 +127,14 @@ Upon approval, the tranche $A_j$ is released to the creator's wallet. If $V_N > 
 The choice of a contribution-weighted voting model addresses several critical challenges in decentralized governance:
 \begin{itemize}
 	\item \textbf{Sybil Attack Mitigation}: Standard blockchain systems that implement a one-address-one-vote rule are highly vulnerable to Sybil attacks, where an individual creates multiple Ethereum addresses to manipulate outcomes. By tying voting power directly to contributed ETH ($w_i = c_i$), Aegis ensures that voting weight is bound to capital locked in the contract, rendering Sybil attacks ineffective.
-	\item \textbf{Incentive Alignment}: Tying vote weights to contributions aligns decision-making authority with financial exposure. Backers who have funded a larger portion of the project goal carry higher financial risk and thus command a larger voice in progress validation.
+	\item \textbf{Incentive Alignment}: Linking vote weights to contributions aligns decision-making authority with financial exposure. Backers who have funded a larger portion of the project goal carry higher financial risk and thus command a larger voice in progress validation.
 	\item \textbf{Instant Finalization vs. Timeout}: To optimize operational efficiency, the contract evaluates consensus dynamically during each vote. If the total yes votes ($V_Y$) or no votes ($V_N$) exceed the absolute majority threshold ($C_{\text{total}}/2$), the voting process is finalized instantly, and funds are either released or frozen. If no majority is reached, the vote remains open until the expiration of the voting period ($T_{\text{voting}} = 7$ days), after which the milestone status is determined by simple majority.
 \end{itemize}
 
 \subsection{Refund Mechanism}
 If the project is cancelled by the creator, or if a milestone is rejected by backers, the project transitions to the \textit{Cancelled} state. Backers are eligible to claim a refund proportional to their contribution from the remaining contract balance $R$. The refund amount $R_i$ for backer $i$ is calculated as:
 \begin{equation}
+\label{eq:refund}
 R_i = c_i \times \frac{R}{C_{\text{total}} - C_{\text{released}}}
 \end{equation}
 where $C_{\text{released}}$ is the total amount of funds already released to the creator for approved milestones. This formulation ensures that remaining, unreleased funds are returned to backers fairly, taking into account any tranches already dispersed for successfully completed work.
@@ -150,7 +146,7 @@ The Aegis platform uses a decentralized topology consisting of three layers: the
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.75\columnwidth]{../use-case.png}
+\includegraphics[width=0.75\columnwidth]{../use-case-en.png}
 \caption{Use case view of Aegis actors and core actions.}
 \label{fig:usecase}
 \end{figure}
@@ -162,7 +158,7 @@ The topology follows a factory-project pattern:
 \end{enumerate}
 
 \subsection{Data Entities and Mappings}
-To enforce governance rules efficiently, the `AegisProject` smart contract maintains three primary data mapping structures in state storage:
+To enforce governance rules efficiently, the \texttt{AegisProject} smart contract maintains three primary data mapping structures in state storage:
 \begin{itemize}
 	\item \texttt{contributions (address => uint256)}: Maps each backer's address to the amount of ETH they contributed. This serves as the source of truth for both refund disbursements and voting weights.
 	\item \texttt{hasVoted (address => mapping(uint256 => bool))}: A nested mapping that tracks whether a specific backer has already cast a vote on a given milestone ID, preventing double-voting.
@@ -174,7 +170,7 @@ Figure~\ref{fig:sequence} depicts the chronological sequence of interactions bet
 
 \begin{figure}[h]
 \centering
-\includegraphics[width=0.9\columnwidth]{../sequence.png}
+\includegraphics[width=0.9\columnwidth]{../sequence-en.png}
 \caption{Sequence of UI-wallet-contract interactions for milestone approval.}
 \label{fig:sequence}
 \end{figure}
@@ -191,6 +187,7 @@ The `AegisProject` contract implements a strict finite state machine (FSM) to pr
 \end{itemize}
 
 \section{Implementation}
+This section describes the practical implementation of the Aegis platform. The codebase is organized into two primary layers: the smart contracts representing the backend blockchain logic, and the React-based decentralized frontend application. The process of integrating these components relies on Web3 providers to establish a joint communication channel, which is detailed below.
 
 \subsection{Solidity Smart Contracts}
 The smart contracts were developed in Solidity (v0.8.28) using the Hardhat development environment. The architecture is split into two main contracts: `AegisCrowdfundFactory.sol` and `AegisProject.sol`.
@@ -249,7 +246,7 @@ Aegis incorporates security best practices:
 \end{itemize}
 
 \subsection{Frontend DApp}
-The frontend interface is implemented as a single-page React application using Vite for build optimization. Communication with the Ethereum network is established using Ethers.js (v6.16) and MetaMask as the EOA wallet provider. 
+The frontend interface is implemented as a single-page React \cite{react} application using Vite \cite{vite} for build optimization. Communication with the Ethereum network is established using Ethers.js \cite{ethersjs} (v6.16) and MetaMask \cite{metamask} as the EOA wallet provider. 
 
 A custom component, `ProofBuilder`, was built to let creators attach multiple rich proofs (such as URLs, images, or videos) when submitting a milestone report. It converts these inputs into a structured JSON payload:
 \begin{verbatim}
@@ -264,7 +261,7 @@ This JSON string is passed directly to the `reportURI` state variable. On the pr
 \section{Testing \& Evaluation}
 
 \subsection{Experimental Setup}
-We evaluated the Aegis platform on a local Hardhat developer node. The setup included:
+We evaluated the proposed Aegis concept on a local Hardhat developer node. The setup included:
 \begin{itemize}
 	\item \textbf{Contracts}: Deployed using Hardhat Ignition scripts.
 	\item \textbf{Network}: Hardhat local network (JSON-RPC localhost:8545).
@@ -276,17 +273,17 @@ We evaluated the Aegis platform on a local Hardhat developer node. The setup inc
 We executed several test scenarios to evaluate correctness:
 \begin{enumerate}
 	\item \textbf{Successful Milestone Flow}: A project was created with 3 milestones (2 ETH, 3 ETH, and 5 ETH). Three backers contributed a total of 10 ETH. The creator submitted reports for each milestone. Backers approved each report. The contract successfully released the tranches sequentially, and transitioned to the \textit{Completed} state.
-	\item \textbf{Milestone Rejection \& Refund}: A creator submitted a milestone report. Backers representing 60\% of the contribution voted "No". The milestone status transitioned to `Rejected`. The creator cancelled the project. Backers successfully claimed their proportional refunds, verifying that the mathematical model in Equation (7) correctly distributed the remaining escrow balance.
+	\item \textbf{Milestone Rejection \& Refund}: A creator submitted a milestone report. Backers representing 60\% of the contribution voted "No". The milestone status transitioned to `Rejected`. The creator cancelled the project. Backers successfully claimed their proportional refunds, verifying that the mathematical model in Equation~\eqref{eq:refund} correctly distributed the remaining escrow balance.
 	\item \textbf{Funding Failure}: A project failed to reach its goal before the deadline. The project state automatically updated to `Cancelled`, and backers successfully withdrew 100\% of their initial contributions.
 \end{enumerate}
 
 \subsection{Discussion \& Limitations}
 The evaluations confirmed that Aegis functions correctly and provides a high degree of accountability. The contribution-weighted voting successfully aligns decision-making power with financial risk.
 
-However, the prototype has several limitations:
+However, the platform concept has several limitations:
 \begin{itemize}
 	\item \textbf{Gas Efficiency}: Storing JSON strings on-chain, while cheaper than storing raw files, still incurs significant gas costs. A future production-ready system must migrate to IPFS (InterPlanetary File System), storing only the IPFS CID (Content Identifier) hash on-chain.
-	\item \textbf{Voting Plutocracy}: Contribution-weighted voting can lead to a plutocratic governance structure, where a single whale backer can override the votes of all smaller contributors. Mitigating this requires exploring quadratic voting or delegated governance tokens.
+	\item \textbf{Voting Plutocracy}: Contribution-weighted voting can lead to a plutocratic governance structure, where a single dominant contributor can override the votes of all smaller contributors. Mitigating this requires exploring quadratic voting or delegated governance tokens.
 	\item \textbf{ETH Volatility}: Using native ETH for escrows exposes both creators and backers to price volatility during the campaign. Integrating ERC-20 stablecoins (e.g., USDT or USDC) is necessary for long-term projects.
 \end{itemize}
 
@@ -296,8 +293,8 @@ Aegis successfully demonstrates that milestone-based crowdfunding with contribut
 Future work will focus on:
 \begin{enumerate}
 	\item Integrating IPFS for decentralized, gas-efficient storage of milestone reports.
-	\item Implementing quadratic voting or hybrid governance tokens to mitigate plutocratic bias.
-	\item Supporting stablecoin-based escrows and integrating decentralized finance (DeFi) yield-bearing pools to keep escrow funds productive.
+	\item Implementing quadratic voting (a voting method where the cost of additional votes increases quadratically to prevent wealthy contributors from dominating outcomes) or hybrid governance tokens to mitigate plutocratic bias.
+	\item Supporting stablecoin-based (e.g., USDC or USDT) escrows and integrating decentralized finance (DeFi) yield-bearing pools (such as Aave or Compound lending pools) to keep escrow funds productive.
 \end{enumerate}
 
 \section*{Appendix}
@@ -358,6 +355,9 @@ OpenZeppelin, ``OpenZeppelin Smart Contract Library,'' 2026. [Online]. Available
 
 \bibitem{ethersjs}
 R. Moore, ``Ethers.js Documentation,'' 2026. [Online]. Available: \url{https://docs.ethers.org/} Accessed: Jun. 2026.
+
+\bibitem{vite}
+Vite Team, ``Vite Frontend Tooling,'' 2026. [Online]. Available: \url{https://vite.dev/} Accessed: Jun. 2026.
 
 \bibitem{react}
 Meta, ``React Documentation,'' 2026. [Online]. Available: \url{https://react.dev/} Accessed: Jun. 2026.

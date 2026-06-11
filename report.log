@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.1.7)  4 JUN 2026 11:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.28 (TeX Live 2025) (preloaded format=pdflatex 2026.1.7)  11 JUN 2026 11:21
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -322,7 +322,7 @@ Package: enumitem 2025/02/06 v3.11 Customized lists
 \enit@count@id=\count307
 \enitdp@description=\count308
 )
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 27
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 28
 .
 
 (c:/texlive/2025/texmf-dist/tex/latex/lm/t1lmr.fd
@@ -335,24 +335,24 @@ File: l3backend-pdftex.def 2025-10-09 L3 backend support: PDF output (pdfTeX)
 (./report.aux)
 \openout1 = `report.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 27.
-LaTeX Font Info:    ... okay on input line 27.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 28.
+LaTeX Font Info:    ... okay on input line 28.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -420,7 +420,7 @@ LaTeX Font Info:    ... okay on input line 27.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 27.
+Package hyperref Info: Link coloring OFF on input line 28.
 (./report.out) (./report.out)
 \@outlinefile=\write3
 \openout3 = `report.out'.
@@ -451,42 +451,42 @@ e
 <logo_ui.png, id=305, 4504.83pt x 4922.39pt>
 File: logo_ui.png Graphic file (type png)
 <use logo_ui.png>
-Package pdftex.def Info: logo_ui.png  used on input line 29.
+Package pdftex.def Info: logo_ui.png  used on input line 30.
 (pdftex.def)             Requested size: 117.43874pt x 128.28706pt.
 
 
 LaTeX Font Warning: Font shape `T1/lmr/bx/sc' undefined
-(Font)              using `T1/lmr/bx/n' instead on input line 33.
+(Font)              using `T1/lmr/bx/n' instead on input line 34.
 
 LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 3
-3.
+4.
 (c:/texlive/2025/texmf-dist/tex/latex/lm/ot1lmr.fd
 File: ot1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OML+lmm on input line 3
-3.
+4.
 
 (c:/texlive/2025/texmf-dist/tex/latex/lm/omllmm.fd
 File: omllmm.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 
-33.
+34.
 
 (c:/texlive/2025/texmf-dist/tex/latex/lm/omslmsy.fd
 File: omslmsy.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 
-33.
+34.
 
 (c:/texlive/2025/texmf-dist/tex/latex/lm/omxlmex.fd
 File: omxlmex.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 33.
+(Font)              <10> on input line 34.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 33.
+(Font)              <7> on input line 34.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 33.
+(Font)              <5> on input line 34.
  [1
 
 
@@ -520,7 +520,7 @@ Package fancyhdr Warning: \headheight is too small (18.0pt):
 \openout6 = `report.lot'.
 
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 4
-8.
+9.
 
 (c:/texlive/2025/texmf-dist/tex/latex/lm/ts1lmr.fd
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
@@ -550,7 +550,7 @@ Package fancyhdr Warning: \headheight is too small (18.0pt):
 
 [6]
 LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 1
-64.
+65.
  (c:/texlive/2025/texmf-dist/tex/latex/lm/t1lmtt.fd
 File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 )
@@ -573,7 +573,7 @@ Package fancyhdr Warning: \headheight is too small (18.0pt):
 <use-case.png, id=454, 691.58376pt x 759.83875pt>
 File: use-case.png Graphic file (type png)
 <use use-case.png>
-Package pdftex.def Info: use-case.png  used on input line 187.
+Package pdftex.def Info: use-case.png  used on input line 188.
 (pdftex.def)             Requested size: 399.2946pt x 438.71257pt.
 
 
@@ -589,7 +589,7 @@ Package fancyhdr Warning: \headheight is too small (18.0pt):
 <activity.png, id=459, 1198.4775pt x 1874.00125pt>
 File: activity.png Graphic file (type png)
 <use activity.png>
-Package pdftex.def Info: activity.png  used on input line 198.
+Package pdftex.def Info: activity.png  used on input line 199.
 (pdftex.def)             Requested size: 328.82706pt x 514.16525pt.
 
 
@@ -606,7 +606,7 @@ Package fancyhdr Warning: \headheight is too small (18.0pt):
 <sequence.png, id=464, 1043.9pt x 588.1975pt>
 File: sequence.png Graphic file (type png)
 <use sequence.png>
-Package pdftex.def Info: sequence.png  used on input line 209.
+Package pdftex.def Info: sequence.png  used on input line 210.
 (pdftex.def)             Requested size: 469.75499pt x 264.68643pt.
 
 
@@ -623,7 +623,7 @@ Package fancyhdr Warning: \headheight is too small (18.0pt):
 <erd.png, id=470, 408.52625pt x 1054.94125pt>
 File: erd.png Graphic file (type png)
 <use erd.png>
-Package pdftex.def Info: erd.png  used on input line 220.
+Package pdftex.def Info: erd.png  used on input line 221.
 (pdftex.def)             Requested size: 187.89912pt x 485.21448pt.
 
 
@@ -650,7 +650,7 @@ Package fancyhdr Warning: \headheight is too small (18.0pt):
 <photos/mockup-antarmuka.png, id=481, 1115.96925pt x 542.025pt>
 File: photos/mockup-antarmuka.png Graphic file (type png)
 <use photos/mockup-antarmuka.png>
-Package pdftex.def Info: photos/mockup-antarmuka.png  used on input line 234.
+Package pdftex.def Info: photos/mockup-antarmuka.png  used on input line 235.
 (pdftex.def)             Requested size: 281.85585pt x 136.89537pt.
 
 
@@ -663,12 +663,12 @@ Package fancyhdr Warning: \headheight is too small (18.0pt):
 [14
 
  <./photos/mockup-antarmuka.png>]
-Underfull \hbox (badness 1609) in paragraph at lines 250--250
+Underfull \hbox (badness 1609) in paragraph at lines 251--251
 []|\T1/lmr/m/n/10 George Wil-iam Thomas
  []
 
 
-Overfull \hbox (0.5108pt too wide) in alignment at lines 256--271
+Overfull \hbox (0.5108pt too wide) in alignment at lines 257--272
  [] [] 
  []
 
@@ -682,14 +682,14 @@ Package fancyhdr Warning: \headheight is too small (18.0pt):
 [15
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 302--303
+Underfull \hbox (badness 10000) in paragraph at lines 303--304
 []\T1/lmr/bx/n/10 AegisCrowdfundFactory\T1/lmr/m/n/10 : \T1/lmtt/m/n/10 createP
 roject()\T1/lmr/m/n/10 , \T1/lmtt/m/n/10 getProjects()\T1/lmr/m/n/10 , \T1/lmtt
 /m/n/10 getProjectCount()\T1/lmr/m/n/10 ,
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 303--304
+Underfull \hbox (badness 10000) in paragraph at lines 304--305
 []\T1/lmr/bx/n/10 AegisProject\T1/lmr/m/n/10 : \T1/lmtt/m/n/10 contribute()\T1/
 lmr/m/n/10 , \T1/lmtt/m/n/10 submitMilestoneReport()\T1/lmr/m/n/10 , \T1/lmtt/m
 /n/10 voteOnMilestone()\T1/lmr/m/n/10 ,
@@ -703,13 +703,8 @@ Package fancyhdr Warning: \headheight is too small (18.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-35.46652pt}.
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 338--339
-[]|\T1/lmtt/m/n/10 frontend/src/pages/CreateProject.jsx\T1/lmr/m/n/10 ,
- []
-
-
 Underfull \hbox (badness 10000) in paragraph at lines 339--340
-[]|\T1/lmtt/m/n/10 frontend/src/pages/ProjectDetail.jsx\T1/lmr/m/n/10 ,
+[]|\T1/lmtt/m/n/10 frontend/src/pages/CreateProject.jsx\T1/lmr/m/n/10 ,
  []
 
 
@@ -718,7 +713,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 340--341
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 344--345
+Underfull \hbox (badness 10000) in paragraph at lines 341--342
+[]|\T1/lmtt/m/n/10 frontend/src/pages/ProjectDetail.jsx\T1/lmr/m/n/10 ,
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 345--346
 []|\T1/lmtt/m/n/10 frontend/src/App.jsx\T1/lmr/m/n/10 , \T1/lmtt/m/n/10 fronten
 d/src/layouts/MainLayout.jsx\T1/lmr/m/n/10 ,
  []
@@ -735,7 +735,7 @@ Package fancyhdr Warning: \headheight is too small (18.0pt):
 File: photos/screenshot-dashboard.png Graphic file (type png)
 <use photos/screenshot-dashboard.png>
 Package pdftex.def Info: photos/screenshot-dashboard.png  used on input line 38
-8.
+9.
 (pdftex.def)             Requested size: 422.77661pt x 207.25568pt.
 
 
@@ -745,7 +745,7 @@ LaTeX Warning: `h' float specifier changed to `ht'.
 File: photos/screenshot-transaksi.png Graphic file (type png)
 <use photos/screenshot-transaksi.png>
 Package pdftex.def Info: photos/screenshot-transaksi.png  used on input line 39
-7.
+8.
 (pdftex.def)             Requested size: 281.85585pt x 225.11398pt.
 
 Package fancyhdr Warning: \headheight is too small (18.0pt): 
@@ -763,7 +763,7 @@ Package fancyhdr Warning: \headheight is too small (18.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-35.46652pt}.
 
 [19 <./photos/screenshot-dashboard.png> <./photos/screenshot-transaksi.png>]
-Underfull \hbox (badness 2698) in paragraph at lines 439--440
+Underfull \hbox (badness 2698) in paragraph at lines 440--441
 []\T1/lmr/m/n/10 V. Bu-terin, ``Ethereum Whitepa-per,'' 2014. [On-line]. Avail-
 able: []$\T1/lmtt/m/n/10 https : / / ethereum . org / en /
  []
@@ -776,7 +776,7 @@ Package fancyhdr Warning: \headheight is too small (18.0pt):
 (fancyhdr)                \addtolength{\topmargin}{-35.46652pt}.
 
 [20]
-Underfull \hbox (badness 1852) in paragraph at lines 481--482
+Underfull \hbox (badness 1852) in paragraph at lines 482--483
 []\T1/lmr/m/n/10 OpenZeppelin, ``Open-Zep-pelin Smart Con-tract Li-brary,'' 202
 6. [On-line]. Avail-able: []$\T1/lmtt/m/n/10 https : / /
  []
@@ -797,23 +797,14 @@ L3 programming layer <2025-12-29>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-
-Package rerunfilecheck Warning: File `report.out' has changed.
-(rerunfilecheck)                Rerun to get outlines right
-(rerunfilecheck)                or use package `bookmark'.
-
-Package rerunfilecheck Info: Checksums for `report.out':
-(rerunfilecheck)             Before: 421A5A139BA595DFB348AF40A5E7E09D;13117
-(rerunfilecheck)             After:  5C756137335CC21450AC85E682AF5A13;13042.
+Package rerunfilecheck Info: File `report.out' has not changed.
+(rerunfilecheck)             Checksum: 5C756137335CC21450AC85E682AF5A13;13042.
  ) 
 Here is how much of TeX's memory you used:
- 10657 strings out of 467538
- 165965 string characters out of 5423726
- 585284 words of memory out of 5000000
- 39278 multiletter control sequences out of 15000+600000
+ 10656 strings out of 467538
+ 165955 string characters out of 5423726
+ 586064 words of memory out of 5000000
+ 39277 multiletter control sequences out of 15000+600000
  680589 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  75i,13n,79p,823b,554s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -823,7 +814,7 @@ type1/public/lm/lmcsc10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/l
 mr10.pfb><c:/texlive/2025/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texliv
 e/2025/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/texlive/2025/texmf-dist/
 fonts/type1/public/lm/lmtt10.pfb>
-Output written on report.pdf (21 pages, 2722310 bytes).
+Output written on report.pdf (21 pages, 2722036 bytes).
 PDF statistics:
  629 PDF objects out of 1000 (max. 8388607)
  571 compressed objects within 6 object streams
